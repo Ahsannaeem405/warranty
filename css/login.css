@@ -58,13 +58,13 @@ button {
     outline: none;
     border: none;
     width: 85%;
-    background: #26D0CE;
+    background: #E23026;
     color: #fff;
     cursor: pointer;
 }
 
 button:hover {
-    background: #07e9e5;
+    background: #aa211a;
 }
 
 .or {
@@ -102,7 +102,7 @@ button:hover {
 }
 
 .not-member a {
-    color: #26D0CE;
+    color: #E23026;
     text-decoration: none;
 }
 
