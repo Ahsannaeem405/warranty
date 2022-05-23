@@ -180,6 +180,10 @@ img {
     background: #256eff;
 }
 
+.color_gray {
+    color: gray !important;
+}
+
 .purchase-info .btn:last-of-type {
     background: #f64749;
 }
