@@ -14,7 +14,7 @@
 .container .card{
     height:500px;
     width:800px;
-    background-color:#fff;
+    background-color:#ababab;
     position:relative;
     box-shadow:0 15px 30px rgba(0,0,0,0.1);
     font-family: 'Poppins', sans-serif;
@@ -28,7 +28,7 @@
 }
 .container .card .left-side{
     width:35%;
-    background-color:#28b0a6;
+    background-color:#800000e0;
     height:100%;
     border-top-left-radius:20px;
     border-bottom-left-radius:20px;
@@ -62,7 +62,7 @@
        margin-left:40px;
        margin-top:50px;
        counter-increment:container 1;
-      color:#4f6581;
+      color:#adadae;
 }
 .progress-bar-1 li::before{
     content:counter(container);
@@ -71,12 +71,12 @@
     position:absolute;
     height:25px;
     width:25px;
-    border:1px solid #4f6581;
+    border:1px solid #adadae;
     border-radius:50%;
     left:-38px;
     top:-5px;
     z-index:10;
-    background-color:#28b0a6 ;
+    background-color: #800000;
 
      
 }
@@ -87,7 +87,7 @@
     position: absolute;
     height: 90px;
     width: 2px;
-    background-color: #4f6581;
+    background-color: #adadae;
     z-index: 1;
     left: -27px;
     top: -70px;
@@ -261,7 +261,7 @@ select{
     width:100px;
     border:none;
     border-radius:5px;
-    background-color:#28b0a6;
+    background-color:#800000e0;
     font-size:12px;
     color:#fff;
     cursor:pointer;
@@ -274,7 +274,7 @@ select{
 .button_space button:nth-child(1){
     background-color:#fff;
     color:#28b0a6;
-    border:1px solid #28b0a6;
+    border:1px solid #800000e0;
 }
 .user_card{
     margin-top:20px;

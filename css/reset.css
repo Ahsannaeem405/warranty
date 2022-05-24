@@ -141,15 +141,19 @@
 }
 
 .text-offgrey {
-    color: #727980;
+    color: #ababab !important;
 }
 
 .text-grey-three {
     color: #8397AD;
 }
 
+
 .text-grey-dark {
     color: #90959A;
+}
+.text-grey-two{
+    color:#454545 !important;
 }
 
 .text-maroon{
@@ -159,6 +163,12 @@
 
 .w-70 {
     max-width: 65% !important;
+}
+.mxw-250 {
+    max-width: 250px !important;
+}
+.mxh-250 {
+    max-height: 250px !important;
 }
 
 .mt-30{
@@ -170,7 +180,7 @@
 /* bg colors css */
 
 .bg-black {
-    background-color: black;
+    background-color: #050505;
 }
 
 .bg-white {
