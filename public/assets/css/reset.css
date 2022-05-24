@@ -1,0 +1,363 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+.font-Poppins{
+  font-family: 'Poppins' !important;
+}
+
+.font-Roboto{
+  font-family: 'Roboto' !important;
+} */
+
+.font-9 {
+    font-size: 9px;
+}
+
+.font-10 {
+    font-size: 10px;
+}
+
+.font-11 {
+    font-size: 11px;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.font-13 {
+    font-size: 13px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+.font-15 {
+    font-size: 15px;
+}
+.font-17 {
+    font-size: 17px;
+}
+.font-20 {
+    font-size: 20px;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+
+.font-23 {
+    font-size: 23px;
+}
+
+.font-24 {
+    font-size: 24px !important;
+}
+
+.font-26 {
+    font-size: 26px;
+}
+
+.font-28 {
+    font-size: 28px;
+}
+
+.font-30 {
+    font-size: 30px;
+}
+
+.font-34 {
+    font-size: 34px;
+}
+
+.font-44 {
+    font-size: 44px;
+}
+
+.font-45 {
+    font-size: 45px;
+}
+
+.font-48 {
+    font-size: 48px;
+}
+
+.font-49 {
+    font-size: 49px;
+}
+.font-55 {
+    font-size: 55px;
+}
+.font-70 {
+    font-size: 70px;
+}
+.fontrem-3{
+    font-size:  3rem !important;
+}
+
+
+/* Font Weight */
+
+.fontw300 {
+    font-weight: 300;
+}
+
+.fontw400 {
+    font-weight: 400;
+}
+
+.fontw500 {
+    font-weight: 500;
+}
+
+.fontw600 {
+    font-weight: 600;
+}
+
+.fontw700 {
+    font-weight: 700 !important;
+}
+
+.fontw800 {
+    font-weight: 800;
+}
+
+.fontwbold {
+    font-weight: bold;
+}
+
+
+/* colors css */
+
+.text-black {
+    color: #000000;
+}
+
+.text-white1 {
+    --tw-text-opacity: 1;
+    color: rgba(255,255,255,var(--tw-text-opacity));
+}
+
+.text-grey-one {
+    color: #8d8888 !important;
+}
+
+.text-offgrey {
+    color: #727980;
+}
+
+.text-grey-three {
+    color: #8397AD;
+}
+
+.text-grey-dark {
+    color: #90959A;
+}
+
+.text-maroon{
+    color: maroon !important;
+}
+
+
+.w-70 {
+    max-width: 65% !important;
+}
+
+.mt-30{
+    margin-top: 24%;
+}
+
+
+
+/* bg colors css */
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-offwhite {
+    background-color: #f0f1f2 !important;
+}
+
+.bg-grey-one {
+    background: #F8F8F8;
+}
+
+.bg-grey-900{
+    --tw-bg-opacity: 1;
+    background-color: rgba(10,17,33,var(--tw-bg-opacity));
+}
+
+.bg-grey-two {
+    background-color: #F6F7FB;
+}
+
+.bg-grey-light {
+    background: #F6F6F6;
+}
+
+.bg-grey-light-one {
+    background: #F3F3F5;
+}
+
+.bg-green-grad{
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(143 188 197) 0%, rgba(40,176,166,1) 34%, rgba(40,176,166,1) 56%);
+}
+
+/* line height */
+
+.lh-18 {
+    line-height: 18px;
+}
+
+.lh-25 {
+    line-height: 25px;
+}
+
+.lh-28 {
+    line-height: 28px;
+}
+
+.lh-30 {
+    line-height: 30px;
+}
+
+.lh-53 {
+    line-height: 53px;
+}
+
+.lh-48 {
+    line-height: 48px;
+}
+
+
+/* reset padding */
+
+.mpt-0 {
+    padding-top: 0;
+}
+
+.mpt-2 {
+    padding-top: 2px;
+}
+
+.mpt-5 {
+    padding-top: 5px;
+}
+
+.mpt-10 {
+    padding-top: 10px;
+}
+
+.my-7 {
+    margin-top: 5rem!important;
+    margin-bottom: 5rem!important;
+}
+
+h2 {
+    line-height: 38px;
+}
+
+.ps-001{
+    padding-left:.09rem!important;
+}
+
+
+/* buttons */
+        
+.btn-maroon-light{
+    color: #fff !important;
+    background-color: #800000d6 !important;
+}
+
+
+/* border-radius */
+
+.shadowDiv{
+    box-shadow: 0px 0px 2px rgb(0 0 0 / 12%), 0 4px 4px rgb(0 0 0 / 6%) !important;
+}
+.border-round-00{
+    border-radius:none !important ;
+}
+.border-rounded{
+    border-radius:30px !important;
+}
+.border-rounded-1{
+    border-radius:20px !important;
+}
+
+.border-rounded-40{
+    border-radius:40px !important;
+}
+.border-rounded-50 {
+    border-radius: 50px !important;
+}
+
+/* border-radius */
+
+
+/* Width, Height, Padding, Margin */
+
+.h55 {
+    height: 55px;
+}
+
+.h46 {
+    height: 46px;
+}
+
+.w153 {
+    width: 153px;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-33 {
+    width: 33%;
+}
+
+.vh100-61 {
+    height: calc(100vh - 62px);
+}
+
+.vh100-180 {
+    height: calc(100vh - 180px);
+}
+
+.loginForm {
+    max-width: 380px;
+}
+
+.pt60 {
+    padding-top: 60px !important;
+}
+
+.mx970 {
+    max-width: 970px;
+}
+
+
+/* Width, Height, Padding, Margin */
+
+
+/* z index class */
+
+.z1 {
+    z-index: 1;
+}
+
+.z2 {
+    z-index: 2;
+}
+
+.z3 {
+    z-index: 3;
+}
+
+
+/* z index class */
