@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  -moz-font-family: 'Poppins', sans-serif;
+ -webkit-font-family: 'Poppins', sans-serif;
 }
 
+body{
+    font-family: 'Poppins', sans-serif;
+}
 
 /* index page */
 
@@ -48,6 +58,8 @@ header {
     transform: translate(-50%, 60%);
     padding: 40px;
     background: rgba(0, 0, 0, 0.7);
+    -moz-background: rgba(0, 0, 0, 0.7);
+    -webkit-background: rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
     border-radius: 10px;
@@ -208,7 +220,7 @@ header {
     padding: 0 7px;
 }
 
-::placeholder {
+.wrapper::placeholder {
     color: #fff;
 }
 
@@ -225,7 +237,7 @@ header {
     background-size: cover;
     width: 100%;
     height: 100%;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 .text_Wrapper_section{
     left: 50%;
@@ -234,6 +246,30 @@ header {
     width: 50%;
 }
 
+/* fa-icons */
+
+.icons i {
+    color: #ffff;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #dfe9f5;
+}
+
+.icons i:hover {
+    color: #fff !important;
+    background: #07001f;
+    transition: 1s;
+}
+
+.icons i:first-child {
+    color: red;
+}
+
+.icons i:last-child {
+    color: blue;
+}
+
+/* fa-icons */
 /* tradition css */
 
 @media (min-width: 300px) and (max-width: 767px) {

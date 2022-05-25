@@ -4,14 +4,14 @@
     padding:0;
     margin:0;
 }
-.container{
+#main_container{
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     background-color:#eee;
 }
-.container .card{
+#main_container .card{
     height:500px;
     width:800px;
     background-color:#ababab;
@@ -20,13 +20,13 @@
     font-family: 'Poppins', sans-serif;
     border-radius:20px;
 }
-.container .card .form{
+#main_container .card .form{
     width:100%;
     height:100%;
     
     display:flex;
 }
-.container .card .left-side{
+#main_container .card .left-side{
     width:35%;
     background-color:#800000e0;
     height:100%;
@@ -94,7 +94,7 @@
 }
 
 
-.progress-bar-1 li.active::after{
+.progress-bar-1 li.active-section::after{
     background-color: #fff;
 
 }
@@ -106,32 +106,13 @@
 /*.progress-bar-1 li:last-child:after{*/
 /*  display:none;  */
 /*}*/
-.progress-bar-1 li.active::before{
+.progress-bar-1 li.active-section::before{
     color:#fff;
       border:1px solid #fff;
 }
-.progress-bar-1 li.active{
+.progress-bar-1 li.active-section{
     color:#fff;
 }
-.d-none{
-   display:none;   
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -139,23 +120,23 @@
 
 
 /*left-side-end*/
-.container .card .right-side{
+#main_container .card .right-side{
     width:65%;
     background-color:#fff;
     height:100%;
   border-radius:20px;
 }
 /*right-side-start*/
-.main{
+.main-part{
     display:none;
 }
-.active{
+.active-section{
     display:block;
 }
-.main{
+.main-part{
     padding:40px;
 }
-.main small{
+.main-part small{
     display:flex;
     justify-content:center;
     align-items:center;
@@ -193,7 +174,7 @@
 
 
 
-input[type="text"]{
+.input-div input[type="text"]{
     width:100%;
     height:40px;
     border:none;
@@ -204,7 +185,7 @@ input[type="text"]{
     box-sizing:border-box;
     padding:0px 10px;
 }
-input[type="password"]{
+.input-div input[type="password"]{
     width:100%;
     height:40px;
     border:none;
@@ -215,7 +196,7 @@ input[type="password"]{
     box-sizing:border-box;
     padding:0px 10px;
 }
-input[type="email"]{
+.input-div input[type="email"]{
     width:100%;
     height:40px;
     border:none;
@@ -226,7 +207,7 @@ input[type="email"]{
     box-sizing:border-box;
     padding:0px 10px;
 }
-select{
+.input-div select{
     width:100%;
     height:40px;
     border:none;
@@ -444,17 +425,17 @@ select{
 
 /*right-side-end*/
 @media (max-width:750px) {
-    .container{
+    #main_container{
         height:scroll;
        
         
     }
-    .container .card {
+    #main_container .card {
         max-width: 350px;
         height:auto !important;
         margin:30px 0;
     }
-    .container .card .right-side {
+    #main_container .card .right-side {
      width:100%;
             
     }
@@ -467,7 +448,7 @@ select{
     
 }
 
-    .container .card .left-side {
+    #main_container .card .left-side {
            
      display: none;
     }

@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="./css/product.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <!--  font awesome cdn  -->
+    <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
+    <!--  font awesome cdn  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,7 +38,11 @@
                     <ul class="navbar-nav mx-auto me-md-auto mb-2 mb-md-0" id="navbar-nav">
                         <li class="nav-item mx-auto">
                             <a class="nav-link active px-md-3 fontw500 text-white" aria-current="page"
-                                href="#">Home</a>
+                                href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link active px-md-3 fontw500 text-white" aria-current="page"
+                                href="./warranty-check.html">Check Warranty</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active px-md-3 fontw500 text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,6 +55,10 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li> -->
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link active px-md-3 fontw500 text-white" aria-current="page"
+                                href="./check-warranty.html">Check Warranty</a>
+                        </li>
                         <li class="nav-item mx-auto">
                             <a class="nav-link active px-md-4 fontw500 text-white" href="./product_page.html">My Products</a>
                         </li>
@@ -132,7 +143,7 @@
     </section>
 
     <div class="container py-5">
-        <div class="card-wrapper my-5">
+        <div class="card-wrapper my-5" id="card-images">
             <div class="card">
                 <!-- card left -->
                 <div class="product-imgs">
@@ -236,7 +247,7 @@
         </div>
     </div>
 
-    <!-- footer section -->
+      <!-- footer section -->
     <section class="footer pt-5 bg-black text-offgrey">
         <div class="container">
             <div class="row border-bottom">
@@ -264,7 +275,7 @@
             <div class="row my-5">
                 <!-- <div class="col-lg-6 col-12"> -->
                 <!-- <div class="row"> -->
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-4 col-12 col-sm-6">
                     <h5>About</h5>
                     <ul class="list-unstyled unoderList text-grey-three">
                         <li class="mb-2 font-14 py-3">We are a team of audioheads, sound engineers, and all in all
@@ -276,10 +287,17 @@
                             <a href="#" class="text-maroon text-decoration-underline"
                                 style="text-underline-offset: 5px;">Read More Here</a>
                         </li>
-                        <li class="mb-2 font-14 ">Social Media Icons</li>
                     </ul>
+
+                    <div class="icons mb-3">
+
+                        <i class="fab fa-google p-2 font-14 ms-2"></i>
+                        <!--<i class="fab fa-apple p-2 font-14 ms-2"></i>-->
+                        <i class="fab fa-facebook p-2 font-14 ms-2"></i>
+
+                    </div>
                 </div>
-                <div class="col-lg-4 col-6 mb-3 px-5">
+                <div class="col-lg-4 col-12 col-sm-6 mb-lg-3 my-3 my-md-0 px-3 px-lg-5">
                     <h5 class="pb-3">Menu</h5>
                     <ul class="list-unstyled unoderList text-grey-three">
                         <li class="mb-2 font-14">Search</li>
@@ -330,7 +348,7 @@
                         <div class="d-flex align-items-center">
                             <div class=" bg-black">
                                 <div class="footer-logo">
-                                    <img src="./img/logo.png" alt="Logo" width="170" class="img-fluid" style="width: 20%!important; display:inline-block !important;">
+                                    <img src="./img/logo.png" alt="Logo" width="170" class="img-fluid">
                                 </div>
 
                                 <div class="copywrite">
@@ -339,7 +357,7 @@
                             </div>
                         </div>
                         <div class=" text-end">
-                            <img src="./img/method.png" class="img-fluid w-50"  style="width: 40%!important; display:inline-block !important;"alt="">
+                            <img src="./img/method.png" class="img-fluid w-50" alt="">
                         </div>
                     </div>
                 </div>
@@ -347,6 +365,7 @@
             </div>
         </div>
     </section>
+    <!-- footer section -->
 
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Bootstrap5 CDN -->

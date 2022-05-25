@@ -1,15 +1,15 @@
 var next_click=document.querySelectorAll(".next_button");
-var main_form=document.querySelectorAll(".main");
+var main_form=document.querySelectorAll(".main-part");
 var step_list = document.querySelectorAll(".progress-bar-1 li");
 var num = document.querySelector(".step-number");
 let formnumber=0;
 
 // $(document).ready(function(){
 //     $( ".step-number-content" ).each(function( content ) {
-// $(content).removeClass('active');
+// $(content).removeClass('active-section');
 // $(content).addClass('d-none');
 // });
-// $('.step-number-content[formnumber]').addClass('active');
+// $('.step-number-content[formnumber]').addClass('active-section');
 // })
 
 next_click.forEach(function(next_click_form){
@@ -62,9 +62,9 @@ share.addEventListener('click',function(){
 
 function updateform(){
     main_form.forEach(function(mainform_number){
-        mainform_number.classList.remove('active');
+        mainform_number.classList.remove('active-section');
     })
-    main_form[formnumber].classList.add('active');
+    main_form[formnumber].classList.add('active-section');
 } 
  
 function progress_forward(){
@@ -72,12 +72,12 @@ function progress_forward(){
     
      
     num.innerHTML = formnumber+1;
-    step_list[formnumber].classList.add('active');
+    step_list[formnumber].classList.add('active-section');
 }  
 
 function progress_backward(){
     var form_num = formnumber+1;
-    step_list[form_num].classList.remove('active');
+    step_list[form_num].classList.remove('active-section');
     num.innerHTML = form_num;
 } 
  
@@ -85,17 +85,17 @@ var step_num_content=document.querySelectorAll(".step-number-content");
 
  function contentchange(){
      step_num_content.forEach(function(content){
-        content.classList.remove('active'); 
+        content.classList.remove('active-section'); 
         content.classList.add('d-none');
      }); 
-     step_num_content[formnumber].classList.add('active');
+     step_num_content[formnumber].classList.add('active-section');
  } 
 
 
  
 function validateform(){
     validate=true;
-    var validate_inputs=document.querySelectorAll(".main.active input");
+    var validate_inputs=document.querySelectorAll(".main-part.active-section input");
     validate_inputs.forEach(function(vaildate_input){
         vaildate_input.classList.remove('warning');
         if(vaildate_input.hasAttribute('require')){
