@@ -80,11 +80,12 @@
                 <div class="col-md-4 col-12">
                   <div class="position-relative">
                     <div class="py-3 profilePic d-flex justify-content-center">
-                        <img src="./img/img_avatar.png" class="w-50 img-fluid profile-img rounded-circle" alt="Profile Picture">
+                        <img src="./img/img_avatar.png" id="profile_image" class="w-50 img-fluid profile-img rounded-circle" alt="Profile Picture">
                     </div>
                     <div class="badge-button position-absolute">
-                        <i class="fa fa-plus-circle faa-icon" aria-hidden="true"></i>
+                        <a href=""><i class="fa fa-plus-circle faa-icon file_btn" aria-hidden="true"></i></a>
                     </div>
+                    <input type="file" class="d-none" id="file_upload">
                     <div class="text-center">
                         <button class="btn btn-maroon-light">Update</button>
                     </div>
@@ -265,12 +266,31 @@
 
     <script src="./js/steper.js"></script>
 
-
-
     <!-- owl carousel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
+            function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#profile_image').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#file_upload").change(function(){
+    readURL(this);
+});
+
+
+            $(".file_btn").on("click",function(e){
+                e.preventDefault();
+                $("#file_upload").click();
+            })
             $('.owl-carousel').owlCarousel({
                 nav: false,
                 dots: true,
