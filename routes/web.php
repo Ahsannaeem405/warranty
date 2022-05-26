@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-// use App\Http\Controllers\ProductController;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\FacebookController;
 // use Database\Factories\ProductFactory;
 
 /*
@@ -29,6 +30,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
+// Social Login with google
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [FacebookController::class, 'facebookSignin']);
+// End social login
+
 Route::get("admin/profile", [UserController::class, 'adminProfile'])->name("admin.profile")->middleware('is_admin');
 Route::post("admin/profile/save", [UserController::class, 'saveProfile'])->name("save.profile")->middleware('is_admin');
 Route::post("admin/product/save", [ProductController::class, 'saveProduct'])->name("save.product")->middleware('is_admin');
@@ -40,3 +49,13 @@ Route::get("admin/users/edit", [UserController::class, 'editUser'])->name("editU
 Route::get("admin/product/list", [ProductController::class, 'productList'])->name("productList")->middleware('is_admin');
 Route::get("admin/product/delete", [ProductController::class, 'deleteproduct'])->name("deleteproduct")->middleware('is_admin');
 Route::get("admin/user/password", [UserController::class, 'checkpassword'])->name("checkpassword")->middleware('is_admin');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

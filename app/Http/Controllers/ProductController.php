@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
-use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
@@ -15,13 +14,12 @@ class ProductController extends Controller
     public function saveCSV(Request $request){
 
         $csv_array = csvToArray($request->file("csv"));
-        for ($i = 1; $i <= count($csv_array); $i++)
+        for ($i = 1; $i < count($csv_array); $i++)
         {
-            // dd();
-            $csv_array[$i]["purchased_date"] = Carbon::create($csv_array[$i+1]["purchased_date"])->format("Y-m-d");
-            $csv_array[$i]["expiry_date"] = Carbon::create($csv_array[$i+1]["expiry_date"])->format("Y-m-d");
-            // dd($csv_array[$i+1]["expiry_date"]);
-        Product::create($csv_array[$i]);
+               
+            $csv_array[$i]["purchased_date"] = Carbon::create($csv_array[$i]["purchased_date"])->format("Y-m-d");
+            $csv_array[$i]["expiry_date"] = Carbon::create($csv_array[$i]["expiry_date"])->format("Y-m-d");
+            Product::create($csv_array[$i]);
         }
         Session::flash("success","Records inserted successfully!");
         return back();
@@ -33,7 +31,6 @@ class ProductController extends Controller
         Product::where("id", $request->id)->delete();
         session()->flash("success", "Product deleted successfully!");
         return redirect()->route("productList");
-
     }
 
     public function productList(){

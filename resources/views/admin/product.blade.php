@@ -2,8 +2,6 @@
 
 
 @section("content")
-
-
  <!-- Begin Page Content -->
  <div class="container-fluid">
 
@@ -244,12 +242,25 @@
 @endsection
 
 @section("custom-js")
-<script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('js/demo/datatables-demo.js')}}"></script>  
 <script src="{{ asset('assets/dropify/js/dropify.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+    
 <script>
     $(document).ready(function(){
+        // $('#dataTable').DataTable();
+        $('#dataTable').DataTable({
+                dom: 'Bfrtip',
+                buttons:[
+                            'copy', 'excel', 'pdf', 'csv'
+                        ]
+        });
+
         $(".deleteproduct").on("click", function(e){
             var link = $(this).attr('href');
             e.preventDefault();
@@ -281,7 +292,7 @@
 })
         })
         // alert("ok")
-        $('.dropify').dropify();
+        // $('.dropify').dropify();
         $(".image_url_add").on("keyup", function(){
             var url = $(this).val();
             $("#show_image_add").attr("src", url);

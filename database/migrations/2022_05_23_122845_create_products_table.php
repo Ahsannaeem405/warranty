@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text("price")->nullable();
             $table->text("sku")->nullable();
             $table->text("serial_no")->nullable();
+            $table->text("status")->nullable();
             $table->date("expiry_date")->nullable();
             $table->date("purchased_date")->nullable();
             $table->text("description")->nullable();

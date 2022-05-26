@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
    
 class HomeController extends Controller
 {
@@ -33,7 +35,11 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('admin.adminHome');
+        $graph = User::where("is_admin", "!=", "1")->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            ->groupBy('date')
+            ->get();
+         $return = ["graph" => $graph];
+        return view('admin.adminHome', $return);
     }
     
 }
