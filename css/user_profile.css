@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* .profilePic{
+    position: relative;
+} */
+.badge-button{
+    font-size: 30px;
+    top:3%;
+    left:60%;
+    
+}
+ .inputBox {
+    position: relative;
+}
+
+ .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #FFF;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #FFF;
+    outline: none;
+    background: transparent;
+}
+
+ .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #FFF;
+    pointer-events: none;
+    transition: .5s;
+    animation: LabelOnLoad 1s forwards 0s ease;
+}
+
+@keyframes LabelOnLoad {
+    0% {
+        transform: rotate(0) translateY(-19px);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+ .inputBox input:focus~label,
+ .inputBox input:valid~label {
+    top: -19px;
+    left: 0;
+    color: #03A9F4;
+    font-size: 12px;
+}
+
+
+.profile{
+    background-image: url('../img/banner.webp'); 
+    background-position: center; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.faa-icon{
+    color: #fff;
+    background-color: #800000;
+    border-radius: 50%;
+}
