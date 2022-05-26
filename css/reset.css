@@ -212,6 +212,10 @@
     background: #F3F3F5;
 }
 
+.bg-maroon-1{
+    background-color: #CE1F21 !important;
+}
+
 .bg-green-grad{
     background: rgb(255,255,255);
 background: linear-gradient(0deg, rgba(143 188 197) 0%, rgba(40,176,166,1) 34%, rgba(40,176,166,1) 56%);
@@ -304,6 +308,10 @@ h2 {
 }
 .border-rounded-50 {
     border-radius: 50px !important;
+}
+
+.border-md-left {
+    border-left: 1px solid #dee2e6 !important;
 }
 
 /* border-radius */
