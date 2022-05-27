@@ -6,7 +6,7 @@ function csvToArray($filename = '', $delimiter = ',')
 
     $header = null;
     $data = array();
-    $head = array("name", "user_id", "image", "price", "purchased_date", "serial_no", "expiry_date", "sku", "stauts", "description"); 
+    $head = array("name",  "image", "price", "purchased_date", "serial_no", "expiry_date", "sku", "description"); 
 
     if (($handle = fopen($filename, 'r')) !== false)
     {

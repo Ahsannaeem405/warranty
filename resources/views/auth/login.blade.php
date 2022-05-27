@@ -38,7 +38,7 @@
             
         </div>
         <div class="not-member">
-            Not a member? <a href="#">Register Now</a>
+            Not have an account? <a href="{{route('register')}}">Register Now</a>
         </div>
     </div>
 </body>

@@ -7,6 +7,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\MyProductController;
+
 // use Database\Factories\ProductFactory;
 
 /*
@@ -21,10 +23,14 @@ use App\Http\Controllers\FacebookController;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return view('home');
 });
 
 Auth::routes();
+Route::get("/logout-user", function(){
+    Auth::logout();
+    return redirect('/');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
@@ -56,6 +62,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect()->route('home');
     })->name('dashboard');
 });
+
+Route::get("/add-product", [MyProductController::class, "add_product"])->name("add-product");
+Route::get('warranty-check', [ProductController::class, "warrantyCheck"])->name("warranty-check");
+Route::post("/warranty-found", [ProductController::class, "warrantyFind"])->name("check_warranty");
+Route::get("/my-product", [MyProductController::class, "myproduct"])->name("myproduct");
+Route::get("/product-detail", [MyProductController::class, "productDetail"])->name("product_detail");

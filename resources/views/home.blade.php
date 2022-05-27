@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management</title>
+    <title>Warranty</title>
     <!-- Main CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/reset.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/steper.css')}}">
 
     <!-- Bootstrap 5 link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Bootstrap 5 link -->
+
+
     <!-- jquery css -->
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
     <link rel="stylesheet" href="{{asset('assets/css/jqueryui.css')}}">
@@ -25,1541 +28,388 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 </head>
 
-<body class="">
-    <header class=" vh-130">
-        <section class="navigationBar">
-            <nav class="navbar navbar-expand-lg navbar-light py-md-3 ps-md-5 ms-md-3">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon "></span>
-                    </button>
-                    <a class="navbar-brand fontw700 font-24 text-white pb-3" href="#">Emprise</a>
-                    <div class="collapse navbar-collapse px-5" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
-                            <li class="nav-item ">
-                                <a class="nav-link active px-md-3 fontw500 text-white" aria-current="page"
-                                    href="#">Destination</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active px-md-4 fontw500 text-white" href="#">Activites</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active fontw500 text-white" href="#">Specials</a>
-                            </li>
-                            <li>
-                                <div class="search-box ps-4">
-                                    <input class="search-input mt-2" type="text" name="" placeholder="Search Venue">
-                                    <div class="search-btn">
-                                        <i class="fas fa-search text-white"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        @if(auth()->check())
-                        <!-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> -->
-                                    <a class="btn rounded-pill text-white bg-success" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+<body>
+@include("layouts.user-menu")
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                        @else
-                        <form class="d-flex">
-                            <button class="btn rounded-pill text-white bg-primary mr-2" type="button">Login</button>
-                            <button class="btn rounded-pill text-black bg-white" type="button">Sign up</button>
-                        </form>
-                        @endif
-                    </div>
-                </div>
-            </nav>
-        </section>
+<header class="">
         
-    <section class="Banner mx-3 mx-md-0">
-        <div class="container position-relative main mt-md-5 mt-3">
-            <div class="position-absolute overlay w-100 h-100">
 
-            </div>
-            <div class="row px-md-5 mx-md-2 mb-5 pb-5">
-                <div class="col-md-12 z1">
-                    <div class="bannerText">
-                        <p class="text-white fontw500 pt-5 m-0"><span><i class="fa fa-minus fa-lg"
-                                    aria-hidden="true"></i></span> The Himaliyan Mountain Ranges</p>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 z1">
-                    <div class="banner-heading">
-                        <h1 class="fontw700 font-70 text-white m-0 py-3">Event Management</h1>
-                    </div>
-                </div>
-                <div class="col-md-6 z1">
-                    <div class="temp">
-                        <p class="text-white">-02<sup class="font-15 p-0">&deg;</sup>C very Cold</p>
-                    </div>
-                </div>
-                <div class="offset-lg-2 col-lg-4 z1">
-                    <div class="banking d-flex">
-                        <div class="bankingCard pe-3">
-                            <a href="#"><i class="fa fa-credit-card-alt p-3 faa-icon" aria-hidden="true"></i></a>
-                        </div>
-                        <p class="text-white pb-0 mb-0">We Accept Payment Through All Cards & Banking</p>
-                    </div>
-                    <div class=" pt-0 ps-5 ms-3">
-                        <a href="#" class="z1 text-white fontw500">Book Now!</a>
-                    </div>
-                </div>
-            </div>
+        <section class="Banner mx-3 mx-md-0">
+            <div class="container position-relative main mt-md-5 mt-3">
+                <div class="row z1 d-flex justify-content-center">
+                    <div class="col-md-12 box position-absolute px-4">
+                        <div class="search location">
+                            <div class="row py-4">
+                                <div class="col-md-5 location">
+                                @if(session()->has("no_found"))
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Record not found',
+                showConfirmButton: false,
+                timer: 2500
+                })
+            </script>      
+            @endif
 
-            <div class="row z1 selectDestination d-flex justify-content-center position-relative">
-                <div class="col-md-12 selectionLocation bg-white position-absolute px-4">
-                    <div class="search location">
-                        <div class="row py-4">
-                            <div class="col-md-3 location">
-                                <div class="location-heading">
-                                    <h3 class="font-20 fontw700">Location:</h3>
-                                </div>
-                                <div class="input-group mb-3 py-3">
-                                    <input type="text" placeholder="Enter Location"
-                                        class="form-control border-right-0 hasDatepicker"
-                                        aria-describedby="basic-addon2">
-                                    <span class="input-group-text bg-transparent border-left-0" id="basic-addon2"><i
-                                            class="fa fa-map-marker text-grey-three"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 activities">
-                                <div class="location-heading">
-                                    <h3 class="font-20 fontw700">Category:</h3>
-                                </div>
-                                <div class="input-group mb-3 py-3">
-                                    <select class="form-select" id="inputGroupSelect03"
-                                        aria-label="Example select with button addon">
-                                        <option selected>Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 Datepicking">
-                                <div class="location-heading">
-                                    <h3 class="font-20 fontw700">Date:</h3>
+            @if(session()->has("added"))
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Product successfully added',
+                showConfirmButton: false,
+                timer: 2500
+                })
+            </script>      
+            @endif
+                                    <form action="{{route('check_warranty')}}" method="POST">
+                                        @csrf
+                                        <div class="inputBox">
+                                            <input type="text" name="serial_number" required="">
+                                            <label for="">Serial Number</label>
+                                        </div>
+                                    
                                 </div>
 
-                                <!-- <div class="input-group mb-3 py-3">
-                                    <input type="text" placeholder="Enter Date" class="form-control border-right-0 hasDatepicker" id="datepicker" aria-describedby="basic-addon2">
-                                    <span class="input-group-text bg-transparent border-left-0" id="basic-addon2"><i
-                      class="fa fa-calendar text-grey-three"></i></span>
-                                </div> -->
-
-                                <div class="input-group mb-3 py-3">
-                                    <input type="text" class="form-control border-right-0" id="datepicker"
-                                        aria-describedby="basic-addon2" autocomplete="off">
-                                    <span class="input-group-text bg-transparent border-left-0" id="basic-addon2"><i
-                                            class="fa fa-calendar text-maroon"></i></span>
+                                <div class="col-md-5 activities">
+                                    
+                                        <div class="inputBox">
+                                            <input type="text" name="sku" required="">
+                                            <label for="">SKU</label>
+                                        </div>
+                                    
                                 </div>
-
-                            </div>
-
-
-                            <div class="col-md-3 searchbtn d-flex justify-content-center align-items-center">
-                                <form class="location-input" action="">
-                                    <button class="btn btn-maroon-light p-3" type="button"><i
-                                            class="fa fa-search font-30" aria-hidden="true"></i></button>
-                                </form>
-
+                                <div class="col-md-2 searchbtn d-flex justify-content-center align-items-center">
+                                    
+                                        <button class="btn btn-maroon-light p-2" type="submit"><i
+                                                class="fa fa-search font-26" aria-hidden="true"></i></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
     </header>
 
     <!-- NavBar section end -->
+    <!-- steps -->
 
-        </div>
-    </section>
+    <section class="event-step"
+        style="background-image: url('{{asset('assets/img/Nakamichi_footer.webp')}}'); background-position: center; background-size: cover;">
+        <div class="container bg-transparent" id="main_container">
+            <div class="card border-0">
+                <div class="form">
+                    <div class="left-side">
+                        <div class="left-heading">
+                            <h3 class="fontw700 font-20">Product Warranty Check</h3>
+                        </div>
+                        <div class="steps-content">
+                            <h3>Step <span class="step-number">1</span></h3>
+                            <!-- <p class="step-number-content active">Please provide the following information</p>
+                        <p class="step-number-content d-none">Where is your business located</p>
+                        <p class="step-number-content d-none">Please provide some of your information</p>
+                        <p class="step-number-content d-none">Processing your information to help you onboard</p> -->
+                        </div>
+                        <ul class="progress-bar-1 mt-1"
+                            style="display: flex;flex-direction: column;justify-content: center;overflow: hidden;color: #fff;text-align: center;white-space: nowrap;transition: width .6s ease;">
+                            <li class="active-section">What is SKU and <br> Serial Number</li>
+                            <li>Search</li>
+                            <li>Result</li>
+                            <li>Processing</li>
+                        </ul>
 
-    <section class="categories pt-5 my-5">
-        <div class="container">
-            <div class="row ">
-                <div class="col-6">
-                    <h3 class="mb-3 fontw700">Select Category</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-6 text-right d-flex justify-content-end">
-                    <div class="caraousel-button pe-1">
-                        <button class="btn btn-maroon-light mb-3 me-1 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
+
+
                     </div>
-                    <div class="caraousel-button">
-                        <button class="btn btn-maroon-light mb-3 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
-                            <span class="carousel-control-next-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators2" class="carousel slide">
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item p-4 active">
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Bungee Jump</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="right-side">
+                        <div class="main-part active-section" style="padding:36px;">
+                            <div class="text">
+                                <h2>What is SKU and Serial Number</h2>
+                                <p>Check a single product warranty using SKU and Serial Code</p>
                             </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
 
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="Sku-detail">
+                                <h4>What is SKU?</h4>
+                                <p class="">SKU numbers are important for every store to use because they make life way
+                                    easier. Each SKU is recorded within your internal tracking system.</p>
                             </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
 
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="serial-detail">
+                                <h4>What is Serial Number?</h4>
+                                <p class="mb-0">The serial number. Serial numbers are unique to each specific product
+                                    and are most frequently used for electronics.</p>
+                            </div>
+
+
+
+
+                            <div class="buttons py-4">
+                                <button class="next_button">Next Step</button>
                             </div>
                         </div>
+
+
+                        <div class="main-part">
+
+                            <div class="text">
+                                <h2>Search</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error consequuntur molestiae
+                                voluptate consequatur, harum ducimus?</p>
+
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="next_button">Next Step</button>
+                            </div>
+                        </div>
+                        <div class="main-part">
+
+                            <div class="text">
+                                <h2>Result</h2>
+                                <!-- <p>Please provide some of your information</p> -->
+                            </div>
+
+                            <!-- <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" required require>
+                                <span>Experience 1</span>
+                            </div>
+                            <div class="input-div"> 
+                                <input type="text" required require>
+                                <span>Position</span>
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" required>
+                                <span>Experience 2</span>
+                            </div>
+                            <div class="input-div">
+                                <input type="text" required>
+                                <span>Position</span>
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" required>
+                                <span>Experience 3</span>
+                            </div>
+                            <div class="input-div">
+                                <input type="text" required>
+                                <span>Position</span>
+                            </div>
+                        </div> -->
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="next_button">Next Step</button>
+                            </div>
+                        </div>
+
+
+                        <div class="main-part">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                            </svg>
+
+                            <div class="text congrats">
+                                <h2>Finish</h2>
+                                <!-- <p>Processing your information to help you onboard</p> -->
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Trending -->
-    <section class="trending my-5 pt-5">
-        <div class="container">
+
+    <!-- steps -->
+
+    <!-- products -->
+
+
+    <section class="products">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
-                    <h3 class="mb-3 fontw700">Trending 2022</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-6 text-right d-flex justify-content-end">
-                    <div class="caraousel-button pe-1">
-                        <button class="btn btn-maroon-light mb-3 me-1 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators21" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="caraousel-button">
-                        <button class="btn btn-maroon-light mb-3 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators21" data-bs-slide="next">
-                            <span class="carousel-control-next-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators21" class="carousel slide">
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item p-4 active">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner1.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner3.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner2.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner1.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner3.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-12 text-center py-5">
+                    <p class="mb-0">WE ARE A TEAM OF AUDIOHEADS, SOUND ENGINEERS, AND FRIENDS.</p>
+                    <h3 class="">AND ALL PASSIONATE ABOUT ALL THINGS AUDIO.</h3>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Trending -->
-
-    <!-- TopVenue -->
-    <section class="topVenue my-5 pt-5">
-        <div class="container">
             <div class="row">
-                <div class="col-6">
-                    <h3 class="mb-3 fontw700">Top Venues</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-6 text-right d-flex justify-content-end">
-                    <div class="caraousel-button pe-1">
-                        <button class="btn btn-maroon-light mb-3 me-1 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
+
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="hero-text pt-4">
+                        <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
+                            <li>
+                                <p class="">DIGITAL SIGNAL PROCESSORS</p>
+                            </li>
+                            <li>
+                                <h3 class="py-4 fontw300">PROCESSING SOUND TO YOUR REQUIREMENTS</h3>
+                            </li>
+                            <li>
+                                <p class="">Our digital signal processors allow you to really tune the soundstage within
+                                    your
+                                    vehicle. </p>
+                            </li>
+                            <li>
+                                <p class="py-4">From time alignment, crossover slopes and gain control, each step brings
+                                    you close to
+                                    audio nirvana.</p>
+                            </li>
+                            <li>
+                                <a href="./product_detail.html" class="text-maroon"
+                                    style="text-underline-offset: 5px;">Find Out More</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="caraousel-button">
-                        <button class="btn btn-maroon-light mb-3 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
-                            <span class="carousel-control-next-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
-                    </div>
                 </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators3" class="carousel slide">
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item p-4 active">
-                                <div class="row">
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-
-
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                            class="w-100 border-rounded-40 mb-4 position-relative"
-                                            style="height: 46% !important;" alt="Boat on Calm Water" />
-
-
-
-
-                                        <img src="./img/banner2.jpg" class="w-100 h-50 border-rounded-40 mb-4"
-                                            alt="Wintry Mountain Landscape" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                            class="w-100 h-100 border-rounded-40 mb-4" alt="Mountains in the Clouds" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="./img/banner3.jpg" class="w-100 border-rounded-40 mb-4"
-                                            style="height: 46%;" alt="Waves at Sea" />
-
-                                        <div class="row h-50">
-                                            <div class="col-5">
-                                                <img src="./img/banner1.jpg" class="h-100 w-100 border-rounded-40 mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                            <div class="col-7">
-                                                <img src="./img/banner.jpg" class="w-100 h-100 border-rounded-40 mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                            class="w-100 h-50 border-rounded-40 mb-4" style="height: 46% !important;"
-                                            alt="Boat on Calm Water" />
-
-                                        <img src="./img/banner2.jpg" class="w-100 h-50 border-rounded-40 mb-4"
-                                            alt="Wintry Mountain Landscape" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                            class="w-100 h-100 border-rounded-40 mb-4" alt="Mountains in the Clouds" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="./img/banner3.jpg" class="w-100 border-rounded-40 mb-4"
-                                            style="height: 46%;" alt="Waves at Sea" />
-
-                                        <div class="row h-50">
-                                            <div class="col-5">
-                                                <img src="./img/banner1.jpg" class="h-100 w-100 border-rounded-40 mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                            <div class="col-7">
-                                                <img src="./img/banner.jpg" class="w-100 h-100 border-rounded-40 mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                            class="w-100 h-50 border-rounded-40 mb-4" style="height: 46% !important;"
-                                            alt="Boat on Calm Water" />
-
-                                        <img src="./img/banner2.jpg" class="w-100 h-50 border-rounded-40 mb-4"
-                                            alt="Wintry Mountain Landscape" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                            class="w-100 h-100 border-rounded-40 mb-4" alt="Mountains in the Clouds" />
-                                    </div>
-
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="./img/banner3.jpg" class="w-100 border-rounded-40 mb-4"
-                                            style="height: 46%;" alt="Waves at Sea" />
-
-                                        <div class="row h-50">
-                                            <div class="col-5">
-                                                <img src="./img/banner1.jpg" class="h-100 w-100 border-rounded-40 mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                            <div class="col-7">
-                                                <img src="./img/banner.jpg" class="w-100 h-100 border-rounded-40 mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-md-6 p-0 d-flex justify-content-center align-items-center">
+                    <div class="pt-5">
+                        <img src="{{asset('assets/img/product-amp.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- TopVenue -->
 
-    <!-- Menu Guides -->
-    <section class="menuGuides my-5 pt-5">
-        <div class="container">
             <div class="row">
-                <div class="col-6">
-                    <h3 class="mb-3 fontw700">Menu Guides</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-6 text-right d-flex justify-content-end">
-                    <div class="caraousel-button pe-1">
-                        <button class="btn btn-maroon-light mb-3 me-1 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="caraousel-button">
-                        <button class="btn btn-maroon-light mb-3 rounded-circle py-2"
-                            data-bs-target="#carouselExampleIndicators4" data-bs-slide="next">
-                            <span class="carousel-control-next-icon d-flex justify-content-center"
-                                style="width: 1.5rem;" aria-hidden="true"></span>
-                        </button>
+
+                <div class="col-md-6 p-0 d-flex justify-content-center align-items-center">
+                    <div class="pb-0">
+                        <img src="{{asset('assets/img/product-amp.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators4" class="carousel slide">
 
-                        <div class="carousel-inner">
-                            <div class="carousel-item p-4 active">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div>
-                                            <img src="./img/banner2.jpg" style="height: 400px !important;" alt=""
-                                                class="img-fluid border-rounded-40">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="div mt-2">
-                                                    <h4 class="text-seagreen1">Adventure Guru</h4>
-                                                </div>
-
-                                                <div class="mb-5 pb-5">
-                                                    <h3>
-                                                        Martina James Junior
-                                                    </h3>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6 mt-5">
-                                                <h6>About</h6>
-                                                <p class="font-13 text-grey-one">Lorem ipsum dolor sit amet consectetur,
-                                                    adipisicing elit. Maiores itaque laudantium voluptatibus?
-                                                </p>
-                                            </div>
-
-                                            <div class="col-6 mt-5">
-                                                <h6>Journey</h6>
-                                                <p class="font-13 text-grey-one">Lorem ipsum dolor sit amet consectetur,
-                                                    adipisicing elit. Maiores itaque laudantium voluptatibus?
-                                                </p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="socialLinks">
-                                                    <p class="text-black fontw600"><span>LinkedIn</span> /
-                                                        <span>Facebook</span> /
-                                                        <span>Instagram</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div>
-                                            <img src="./img/banner2.jpg" style="height: 400px !important;" alt=""
-                                                class="img-fluid border-rounded-40">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="div">
-                                                    <h4 class="text-seagreen1">Adventure Guru</h4>
-                                                </div>
-
-                                                <div class="mb-5 pb-5">
-                                                    <h3>
-                                                        Martina James Junior
-                                                    </h3>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6 mt-5">
-                                                <h6>About</h6>
-                                                <p class="font-13 text-grey-one">Lorem ipsum dolor sit amet consectetur,
-                                                    adipisicing elit. Maiores itaque laudantium voluptatibus?
-                                                </p>
-                                            </div>
-
-                                            <div class="col-6 mt-5">
-                                                <h6>Journey</h6>
-                                                <p class="font-13 text-grey-one">Lorem ipsum dolor sit amet consectetur,
-                                                    adipisicing elit. Maiores itaque laudantium voluptatibus?
-                                                </p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="socialLinks">
-                                                    <p class="text-black fontw600"><span>LinkedIn</span> /
-                                                        <span>Facebook</span> /
-                                                        <span>Instagram</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div>
-                                            <img src="./img/banner2.jpg" style="height: 400px !important;" alt=""
-                                                class="img-fluid border-rounded-40">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="div">
-                                                    <h4 class="text-seagreen1">Adventure Guru</h4>
-                                                </div>
-
-                                                <div class="mb-5 pb-5">
-                                                    <h3>
-                                                        Martina James Junior
-                                                    </h3>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6 mt-5">
-                                                <h6>About</h6>
-                                                <p class="font-13 text-grey-one">Lorem ipsum dolor sit amet consectetur,
-                                                    adipisicing elit. Maiores itaque laudantium voluptatibus?
-                                                </p>
-                                            </div>
-
-                                            <div class="col-6 mt-5">
-                                                <h6>Journey</h6>
-                                                <p class="font-13 text-grey-one">Lorem ipsum dolor sit amet consectetur,
-                                                    adipisicing elit. Maiores itaque laudantium voluptatibus?
-                                                </p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="socialLinks">
-                                                    <p class="text-black fontw600"><span>LinkedIn</span> /
-                                                        <span>Facebook</span> /
-                                                        <span>Instagram</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="hero-text pt-4">
+                        <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
+                            <li>
+                                <p class="">DIGITAL SIGNAL PROCESSORS</p>
+                            </li>
+                            <li>
+                                <h3 class="py-4 fontw300">PROCESSING SOUND TO YOUR REQUIREMENTS</h3>
+                            </li>
+                            <li>
+                                <p class="">Our digital signal processors allow you to really tune the soundstage within
+                                    your
+                                    vehicle. </p>
+                            </li>
+                            <li>
+                                <p class="py-4">From time alignment, crossover slopes and gain control, each step brings
+                                    you close to
+                                    audio nirvana.</p>
+                            </li>
+                            <li>
+                                <a href="#" class="text-maroon" style="text-underline-offset: 5px;">Find Out More</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-    <!-- Menu Guide -->
 
-    <!-- Best seller -->
-    <section class="bestseller my-5 pt-5">
-        <div class="container">
+    <!-- products -->
+    <!-- tradition section -->
+
+    <section class="tradition vh-100 position-relative">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-12 d-flex justify-content-between">
-                    <div>
-                        <h4 class="text-blue">Best Seller</h4>
-                        <p class="font-400 text-grey-three">Sost Brillient reason Entrada should be your one-stop-shop!
-                        </p>
-                    </div>
-                    <div>
-                        <button class="btn btn-maroon-light border-rounded-50">Check All</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
+                <div class="col-md-12 fontw300">
+                    <div class="text_Wrapper_section bg-white text-center position-absolute p-5">
+                        <div class="heading_Wrapper">
+                            <h3 class="font-17 fontw300">Nakamichi @ CES 2020</h3>
+                            <div class="ImageHero__BlockContent Rte">
+                                <p>Carrying on the tradition of our presence in the global audio market, Nakamichi was
+                                    present at this years CES 2020 featuring a wide range of both mobile audio and home
+                                    audio products.</p>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light">10 Days | 9 Nights</h6>
-                                <h3 class="text-light">$200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
-                                <button class="btn btn-maroon-light px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue">Product 1</h5>
-                        <p class="text-grey-three">Checkout daily Deal</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light">10 Days | 9 Nights</h6>
-                                <h3 class="text-light">$200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
-                                <button class="btn btn-maroon-light px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue">Product 1</h5>
-                        <p class="text-grey-three">Checkout daily Deal</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light">10 Days | 9 Nights</h6>
-                                <h3 class="text-light">$200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
-                                <button class="btn btn-maroon-light px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue">Product 1</h5>
-                        <p class="text-grey-three">Checkout daily Deal</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- best seller -->
-
-    <!-- second banner -->
-    <section class="secondbanner my-5 pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 py-md-5 py-3">
-                    <div class="bg-green-grad text-white border-rounded-1 text-center p-0">
-
-                        <div class="secondHeading pt-5">
-                            <h6 class="text-center text-white font-45">Tour the World from Your Cough with
-                                #ExperienceLive!</h6>
-                        </div>
-                        <div class="d-flex justify-content-center pt-3">
-                            <p class="text-white-50 font-23">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                        <div class="sale py-4">
-                            <form class="d-flex justify-content-center">
-                                <button class="btn btn-white-green rounded-pill py-3 px-5" type="button">Sign
-                                    up</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- second banner -->
-    <!-- Subscribe section -->
-    <section class="subscribe my-5 pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                        class="w-100 h-100 rounded mb-4" alt="Mountains in the Clouds" />
-                </div>
-                <div class="col-md-3 mb-4 mb-lg-0">
-
-
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                        class="w-100 rounded mb-4 position-relative" style="height: 45% !important;"
-                        alt="Boat on Calm Water" />
-
-
-
-                    <img src="./img/banner2.jpg" class="w-100 h-50 rounded mb-4" alt="Wintry Mountain Landscape" />
-                </div>
-
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="div mt-2">
-                                <h4 class="text-seagreen1">Subscribe For offers</h4>
-                            </div>
-
-                            <div class="mb-4">
-                                <h3 class="fontw700" style="font-size: 35px;">
-                                    Adventures Calling </br> You guys!
-                                </h3>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <p class="text-grey-one" style="max-width: 70%;">Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Odio nam dignissimos quo?</p>
-                        </div>
-
-                        <div class="col-lg-10 col-12">
-                            <div class="subscribe-text-Bar pt-5">
-                                <form class="shadowDiv">
-                                    <div class="input-group border-round-00">
-                                        <input type="text" class="form-control form-control-lg"
-                                            style="border-radius: unset;" placeholder="Email Address"
-                                            aria-label="Example text with button addon"
-                                            aria-describedby="button-addon1">
-                                        <button class="btn btn-maroon-light py-3" style="border-radius: unset;"
-                                            type="button" id="button-addon1">Send
-                                            Now</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="socialLinks py-4">
-                                <p class="text-grey-one font-13">Lorem ipsum dolor sit amet consectetur.</p>
-                            </div>
+                            <a href="" class="text-decoration-none">Connect with us on Facebook to find
+                                out more</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Subscribe section -->
 
+    <!-- tradition section -->
 
     <!-- Still have a question -->
-    <section class="faqs my-5 pt-5">
-        <div class="container">
+    <section class="faqs">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <h3 class="mb-3 fontw700 text-center">Still have a question?</h3>
-                    <p class="text-center text-grey-three">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-12 col-lg-1"></div>
-                <div class="col-md-5 py-md-5 py-3">
-                    <div class="bg-green-two text-white border-rounded-1 text-center p-0">
-                        <div class=" py-5">
-                            <div class="d-inline-block rounded-circle bg-white p-2">
-                                <i class="fa fa-headphones bg-white rounded-circle text-seagreen1 font-45"
-                                    aria-hidden="true"></i>
-                            </div>
+                <div class="col-md-4 col-12 overflow-hidden p-0">
+                    <div class="bg_image d-flex justify-content-center align-items-end">
+                        <div class="py-4 text-center">
+                            <h6 class="text-light my-4">DIGITAL SIGNAL PROCESSORS</h6>
+                            <h4 class="text-light my-4">TUNE YOUR SOUND</h4>
+                            <button class="btn btn-danger">Shop Now</button>
+
                         </div>
-                        <div class="heading">
-                            <h4>For Sales</h4>
+                        <div>
+
+
                         </div>
-                        <div class="d-flex justify-content-center pt-3">
-                            <p class="text-white-50" style="max-width: 55%;">Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit.
-                            </p>
-                        </div>
-                        <div class="sale py-4">
-                            <p class="mb-0">sales@xyz.com</p>
-                            <p class="">+977(985)344-33-42</p>
-                        </div>
+
+
                     </div>
+
                 </div>
-                <div class="col-md-5 py-md-5 py-3">
-                    <div class="bg-purple-1 text-white border-rounded-1 text-center p-0">
-                        <div class=" py-5">
-                            <div class="d-inline-block rounded-circle bg-white p-2">
-                                <i class="fa fa-question-circle-o rounded-circle text-purple-1 font-45"
-                                    aria-hidden="true">
-                                </i>
-                            </div>
+
+                <div class="col-md-4 col-12 overflow-hidden p-0">
+                    <div class="bg_image d-flex justify-content-center align-items-end">
+                        <div class="py-4 text-center">
+                            <h6 class="text-light my-4">DIGITAL SIGNAL PROCESSORS</h6>
+                            <h4 class="text-light my-4">TUNE YOUR SOUND</h4>
+                            <button class="btn btn-danger">Shop Now</button>
+
                         </div>
-                        <div class="heading">
-                            <h4>Help & Support</h4>
+                        <div>
+
+
                         </div>
-                        <div class="d-flex justify-content-center pt-3">
-                            <p class="text-white-50" style="max-width: 55%;">Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit.
-                            </p>
-                        </div>
-                        <div class="help py-4">
-                            <p class="mb-0">help@xyz.com</p>
-                            <p class="">+977(985)344-33-42</p>
-                        </div>
+
+
                     </div>
+
                 </div>
-                <div class="col-12 col-lg-1"></div>
+
+
+                <div class="col-md-4 col-12 overflow-hidden p-0">
+                    <div class="bg_image d-flex justify-content-center align-items-end">
+                        <div class="py-4 text-center">
+                            <h6 class="text-light my-4">DIGITAL SIGNAL PROCESSORS</h6>
+                            <h4 class="text-light my-4">TUNE YOUR SOUND</h4>
+                            <button class="btn btn-danger">Shop Now</button>
+
+                        </div>
+                        <div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
             </div>
         </div>
     </section>
     <!-- Still have a question -->
 
     <!-- footer section -->
-    <section class="footer mt-5 pt-5">
+    <section class="footer pt-5 bg-black text-offgrey">
         <div class="container">
             <div class="row border-bottom">
                 <div class="col-md-6">
@@ -1567,10 +417,10 @@
                         <div class="d-flex">
                             <div class="quick-link">
                                 <i class="fa fa-plus-circle pe-3" aria-hidden="true"></i>
-                                <a href="#" class="text-black text-decoration-none fontw700">QuicK Links</a>
+                                <a href="#" class="text-offgrey text-decoration-none fontw700">QuicK Links</a>
                             </div>
                             <div class="ms-4">
-                                <p class="fonwt500 text-grey-two">Explore More Categories</p>
+                                <p class="fonwt500">Explore More Categories</p>
                             </div>
                         </div>
                     </div>
@@ -1583,95 +433,68 @@
                 </div>
             </div>
 
-            <div class="row border-bottom">
-                <div class="col-md-12">
-                    <h4 class="my-3 text-seagreen1">Get in touch</h4>
-                </div>
-                <div class="col-md-6 z1">
-                    <div class="temp">
-                        <h2 class="fontw700">Adventures Calling <br />You guys!</h2>
-                    </div>
-                </div>
-                <div class="offset-md-2 col-md-4 z1 my-3">
-                    <div class="banking d-flex justify-content-center">
-                        <div class="bankingCard pe-3 ">
-                            <a href="#"><i class="fa fa-credit-card-alt p-3 faa-icon text-seagreen1"
-                                    aria-hidden="true"></i></a>
-                        </div>
-                        <p class="pb-0 mb-0 fontw500">Our Office <br /> <span class="fontw700"> Lahore, Pakistan</span>
-                        </p>
-                    </div>
-                    <div class=" py-2 me-4 text-center">
-                        <a href="#" class="z1 text-white fontw500"><i class="fa fa-long-arrow-right"
-                                aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
             <div class="row my-5">
-                <div class="col-lg-6 col-12">
-                    <div class="row">
-                        <div class="col-lg-4 col-6">
-                            <h5>Services</h5>
-                            <ul class="list-unstyled unoderList text-grey-three">
-                                <li class="mb-2 font-14">Budget</li>
-                                <li class="mb-2 font-14">Expert</li>
-                                <li class="mb-2 font-14">Independent</li>
-                                <li class="mb-2 font-14">Luxury Tour</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4 col-6 mb-3">
-                            <h5>Adventures</h5>
-                            <ul class="list-unstyled unoderList text-grey-three">
-                                <li class="mb-2 font-14">Beach Activity</li>
-                                <li class="mb-2 font-14">Bungee Jump</li>
-                                <li class="mb-2 font-14">City Tour</li>
-                                <li class="mb-2 font-14">Hiking Trip</li>
-                            </ul>
-                        </div>
+                <!-- <div class="col-lg-6 col-12"> -->
+                <!-- <div class="row"> -->
+                <div class="col-lg-4 col-12 col-sm-6">
+                    <h5>About</h5>
+                    <ul class="list-unstyled unoderList text-grey-three">
+                        <li class="mb-2 font-14 py-3">We are a team of audioheads, sound engineers, and all in all
+                            passionate
+                            about all things audio.</li>
+                        <li class="mb-2 font-14">Founded in 2018, we’ve established a small but specialized team to
+                            focus on reestablishing the Nakamichi brand name in home and mobile audio.</li>
+                        <li class="py-3">
+                            <a href="#" class="text-maroon text-decoration-underline"
+                                style="text-underline-offset: 5px;">Read More Here</a>
+                        </li>
+                    </ul>
 
-                        <div class="col-lg-4 col-6 mb-3">
-                            <h5>Country</h5>
-                            <ul class="list-unstyled unoderList text-grey-three">
-                                <li class="mb-2 font-14">Beach Activity</li>
-                                <li class="mb-2 font-14">Bungee Jump</li>
-                                <li class="mb-2 font-14">City Tour</li>
-                                <li class="mb-2 font-14">Hiking Trip</li>
-                            </ul>
-                        </div>
+                    <div class="icons mb-3">
+
+                        <i class="fab fa-google p-2 font-14 ms-2"></i>
+                        <!--<i class="fab fa-apple p-2 font-14 ms-2"></i>-->
+                            <i class="fab fa-facebook p-2 font-14 ms-2"></i>
+
                     </div>
                 </div>
+                <div class="col-lg-4 col-12 col-sm-6 mb-lg-3 my-3 my-md-0 px-3 px-lg-5">
+                    <h5 class="pb-3">Menu</h5>
+                    <ul class="list-unstyled unoderList text-grey-three">
+                        <li class="mb-2 font-14">Search</li>
+                        <li class="mb-2 font-14">Nakamichi History</li>
+                        <li class="mb-2 font-14">Product Registration</li>
+                        <li class="mb-2 font-14">Press and Media</li>
+                        <li class="mb-2 font-14">Privacy Policy</li>
+                    </ul>
+                </div>
 
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-2 col-12">
-                            <h4 class="my-3">Get in touch</h4>
-                            <h3 class="fontw700">Lets Talk <span class="fa fa-long-arrow-right ps-3"
-                                    aria-hidden="true"></span></h3>
-                        </div>
+                <div class="col-lg-4 col-12">
+                    <div class="heading">
+                        <h4 class="mb-3">NAKAMICHI NEWSLETTER</h4>
+                        <p>Subscribe to receive updates, access to exclusive deals, and more on our mobile audio
+                            products.</p>
+                    </div>
 
-                        <div class="col-lg-10 offset-lg-2 col-12">
-                            <div class="subscribe-text-Bar pt-3">
-                                <form class="shadowDiv">
-                                    <div class="input-group border-round-00">
-                                        <input type="text" class="form-control form-control-lg"
-                                            style="border-radius: unset;" placeholder="Email Address"
-                                            aria-label="Example text with button addon"
-                                            aria-describedby="button-addon1">
-                                        <button class="btn btn-maroon-light py-4" style="border-radius: unset;"
-                                            type="button" id="button-addon1">Send
-                                            Now</button>
-                                    </div>
-                                </form>
-                            </div>
+                    <div class="subscribe_div">
+                        <div class="subscribe-text-Bar pt-3">
+                            <form class="shadowDiv">
+                                <div class="input-group border-round-00">
+                                    <input type="text" class="form-control form-control-sm"
+                                        style="border-radius: unset;" placeholder="Email Address"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    <button class="btn btn-maroon-light py-2" style="border-radius: unset;"
+                                        type="button" id="button-addon1">SUBSCRIBE</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-12 pt-5">
-                    <div class="privacy d-flex justify-content-between border-bottom ">
+                <!-- <div class="col-md-12 pt-5">
+                    <div class="privacy d-flex justify-content-between">
                         <h5>Privacy Policy</h5>
                         <div class="socialLinks">
                             <p class="text-black fontw600"><span>LinkedIn</span> / <span>Facebook</span> /
@@ -1679,15 +502,23 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-md-12 py-3">
+                <div class="col-md-12 py-3 border-top">
                     <div class="privacy d-flex justify-content-between">
                         <div class="d-flex align-items-center">
-                            <h6>2016-2022 <span>&copy;</span> Emprise</h6>
+                            <div class=" bg-black">
+                                <div class="footer-logo">
+                                    <img src="{{asset('assets/img/logo.png')}}" alt="Logo" width="170" class="img-fluid">
+                                </div>
+
+                                <div class="copywrite">
+                                    <h6 class="text-offgrey font-13"><span>©</span>NIKAMICHI CAR AUDIO</h6>
+                                </div>
+                            </div>
                         </div>
                         <div class=" text-end">
-                            <img src="./img/method.png" class="img-fluid w-50" alt="">
+                            <img src="{{asset('assets/img/method.png')}}" class="img-fluid w-50" alt="">
                         </div>
                     </div>
                 </div>
@@ -1695,7 +526,7 @@
             </div>
         </div>
     </section>
-
+    <!-- footer section -->
 
     <!-- Bootstrap5 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -1712,17 +543,7 @@
 
 
 
-
-    <script>
-        $(function () {
-            $("#datepicker").datepicker({
-                dateFormat: 'yy-mm-dd',
-                showOtherMonths: true,
-                selectOtherMonths: true
-            });
-        });
-    </script>
-
+    <script src="{{asset('assets/js/steper.js')}}"></script>
 
 
 
@@ -1730,6 +551,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
+            $("#logout-btn").on("click", function(event){
+                // alert("sdkfjj")
+                event.preventDefault();
+                $("#logout-form").submit();
+            })
+
             $('.owl-carousel').owlCarousel({
                 nav: false,
                 dots: true,
@@ -1764,13 +591,6 @@
             };
             setMinHeight();
 
-            $(".carousel").swipe({
-                swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-                    if (direction == 'left') $(this).carousel('next');
-                    if (direction == 'right') $(this).carousel('prev');
-                },
-                allowPageScroll: "vertical"
-            });
         });
         $(document).on('resize', function () {
             setMinHeight();

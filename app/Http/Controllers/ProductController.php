@@ -11,20 +11,42 @@ use Illuminate\Support\Facades\Session;
 class ProductController extends Controller
 {
 
+    public function add_product(Request $request){
+        return $request;
+    }
+
+    public function warrantyFind(Request $request){
+        
+        $request->validate([
+            "sku" => "required",
+            "serial_number" => "required",
+        ]);
+        $find = Product::where("sku", $request->sku)
+        ->where("serial_no", $request->serial_number)->first();
+        if($find){
+            $return = ["find" => $find];
+            return view("search-product", $return);
+        }else{
+            session()->flash("no_found","No product found agaist this record");
+            return back();
+        }
+    }
+
+    public function warrantyCheck(){
+        return view("warranty-check");
+    }
+
     public function saveCSV(Request $request){
 
         $csv_array = csvToArray($request->file("csv"));
         for ($i = 1; $i < count($csv_array); $i++)
         {
-               
             $csv_array[$i]["purchased_date"] = Carbon::create($csv_array[$i]["purchased_date"])->format("Y-m-d");
             $csv_array[$i]["expiry_date"] = Carbon::create($csv_array[$i]["expiry_date"])->format("Y-m-d");
             Product::create($csv_array[$i]);
         }
         Session::flash("success","Records inserted successfully!");
-        return back();
-
-    
+        return back();    
     }
 
     public function deleteproduct(Request $request){
