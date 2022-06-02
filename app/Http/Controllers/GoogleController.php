@@ -35,7 +35,9 @@ class GoogleController extends Controller
       
             $user = Socialite::driver('google')->user();
        
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('google_id', $user->id)
+            ->orwhere("email",$user->email)
+            ->first();
        
             if($finduser){
        
@@ -47,7 +49,7 @@ class GoogleController extends Controller
                 $data2 = Http::get('https://api.ipify.org/?format=json');
                 $data2 = json_decode($data2->body());
                 $ip = $data2->ip;
-                $newUser = User::create([
+                $newUser = User::firstOrCreate([
                     'name' => $user->name,
                     'is_admin' => "0",
                     'ip_address' => $ip,

@@ -16,11 +16,11 @@ class ProductController extends Controller
     }
 
     public function warrantyFind(Request $request){
-        
-        $request->validate([
-            "sku" => "required",
-            "serial_number" => "required",
-        ]);
+        // return 
+        // $request->validate([
+        //     "sku" => "required",
+        //     "serial_number" => "required",
+        // ]);
         $find = Product::where("sku", $request->sku)
         ->where("serial_no", $request->serial_number)->first();
         if($find){

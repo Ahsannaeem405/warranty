@@ -69,7 +69,7 @@
                                     <form action="{{route('check_warranty')}}" method="POST">
                                         @csrf
                                         <div class="inputBox">
-                                            <input type="text" name="serial_number" required="">
+                                            <input type="text" name="serial_number" value="">
                                             <label for="">Serial Number</label>
                                         </div>
                                     
@@ -78,7 +78,7 @@
                                 <div class="col-md-5 activities">
                                     
                                         <div class="inputBox">
-                                            <input type="text" name="sku" required="">
+                                            <input type="text" name="sku" value="">
                                             <label for="">SKU</label>
                                         </div>
                                     
@@ -100,8 +100,7 @@
     <!-- NavBar section end -->
     <!-- steps -->
 
-    <section class="event-step"
-        style="background-image: url('{{asset('assets/img/Nakamichi_footer.webp')}}'); background-position: center; background-size: cover;">
+    <section class="event-step" style="background-image: url('{{ isset($setting->section2_background) ? asset('sections/'.$setting->section2_background) : asset('assets/img/Nakamichi_footer.webp')}}'); background-position: center; background-size: cover;">
         <div class="container bg-transparent" id="main_container">
             <div class="card border-0">
                 <div class="form">
@@ -130,20 +129,20 @@
                     <div class="right-side">
                         <div class="main-part active-section" style="padding:36px;">
                             <div class="text">
-                                <h2>What is SKU and Serial Number</h2>
+                                <h2> {{isset($setting->stepbox_title) ? $setting->stepbox_title : 'What is SKU and Serial Number'}} </h2>
                                 <p>Check a single product warranty using SKU and Serial Code</p>
                             </div>
 
                             <div class="Sku-detail">
                                 <h4>What is SKU?</h4>
-                                <p class="">SKU numbers are important for every store to use because they make life way
-                                    easier. Each SKU is recorded within your internal tracking system.</p>
+                                <p class="">{{isset($setting->ans_of_q1) ? $setting->ans_of_q1 : 'SKU numbers are important for every store to use because they make life way
+                                    easier. Each SKU is recorded within your internal tracking system.'}}</p>
                             </div>
 
                             <div class="serial-detail">
                                 <h4>What is Serial Number?</h4>
-                                <p class="mb-0">The serial number. Serial numbers are unique to each specific product
-                                    and are most frequently used for electronics.</p>
+                                <p class="mb-0">{{isset($setting->ans_of_q2) ? $setting->ans_of_q2 : 'Serial numbers are important for every store to use because they make life way
+                                    easier. Each SKU is recorded within your internal tracking system.'}}</p>
                             </div>
 
 
@@ -161,8 +160,8 @@
                                 <h2>Search</h2>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error consequuntur molestiae
-                                voluptate consequatur, harum ducimus?</p>
+                            <p>{{isset($setting->search) ? $setting->search : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error consequuntur molestiae
+                                voluptate consequatur, harum ducimus?'}}</p>
 
                             <div class="buttons button_space">
                                 <button class="back_button">Back</button>
@@ -241,7 +240,7 @@
             <div class="row">
                 <div class="col-12 text-center py-5">
                     <p class="mb-0">WE ARE A TEAM OF AUDIOHEADS, SOUND ENGINEERS, AND FRIENDS.</p>
-                    <h3 class="">AND ALL PASSIONATE ABOUT ALL THINGS AUDIO.</h3>
+                    <h3 class="">{{isset($setting->section3_title) ? $setting->section3_title : 'AND ALL PASSIONATE ABOUT ALL THINGS AUDIO.'}}</h3>
                 </div>
             </div>
 
@@ -254,28 +253,28 @@
                                 <p class="">DIGITAL SIGNAL PROCESSORS</p>
                             </li>
                             <li>
-                                <h3 class="py-4 fontw300">PROCESSING SOUND TO YOUR REQUIREMENTS</h3>
+                                <h3 class="py-4 fontw300">{{isset($setting->product_name1) ? $setting->product_name1 : 'PROCESSING SOUND TO YOUR REQUIREMENTS'}}</h3>
                             </li>
                             <li>
-                                <p class="">Our digital signal processors allow you to really tune the soundstage within
+                                <p class="">{!! isset($setting->product_detail1) ? $setting->product_detail1 : 'Our digital signal processors allow you to really tune the soundstage within
                                     your
-                                    vehicle. </p>
+                                    vehicle.' !!} </p>
                             </li>
                             <li>
-                                <p class="py-4">From time alignment, crossover slopes and gain control, each step brings
+                                <!-- <p class="py-4">From time alignment, crossover slopes and gain control, each step brings
                                     you close to
-                                    audio nirvana.</p>
+                                    audio nirvana.</p> -->
                             </li>
                             <li>
-                                <a href="./product_detail.html" class="text-maroon"
-                                    style="text-underline-offset: 5px;">Find Out More</a>
+                                <!-- <a href="{{asset('assets/product_detail.html')}}" class="text-maroon"
+                                    style="text-underline-offset: 5px;">Find Out More</a> -->
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6 p-0 d-flex justify-content-center align-items-center">
                     <div class="pt-5">
-                        <img src="{{asset('assets/img/product-amp.webp')}}" alt="" class="img-fluid">
+                        <img src="{{ isset($setting->product_image1) ? asset('products/'.$setting->product_image1) : asset('assets/img/product-amp.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -284,7 +283,7 @@
 
                 <div class="col-md-6 p-0 d-flex justify-content-center align-items-center">
                     <div class="pb-0">
-                        <img src="{{asset('assets/img/product-amp.webp')}}" alt="" class="img-fluid">
+                        <img src="{{ isset($setting->product_image2) ? asset('products/'.$setting->product_image2) : asset('assets/img/product-amp.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
 
@@ -295,17 +294,17 @@
                                 <p class="">DIGITAL SIGNAL PROCESSORS</p>
                             </li>
                             <li>
-                                <h3 class="py-4 fontw300">PROCESSING SOUND TO YOUR REQUIREMENTS</h3>
+                                <h3 class="py-4 fontw300">{{isset($setting->product_name2) ? $setting->product_name2 : 'PROCESSING SOUND TO YOUR REQUIREMENTS'}}</h3>
                             </li>
                             <li>
-                                <p class="">Our digital signal processors allow you to really tune the soundstage within
+                                <p class="">{!! isset($setting->product_detail2) ? $setting->product_detail2 : 'Our digital signal processors allow you to really tune the soundstage within
                                     your
-                                    vehicle. </p>
+                                    vehicle' !!}. </p>
                             </li>
                             <li>
-                                <p class="py-4">From time alignment, crossover slopes and gain control, each step brings
+                                <!-- <p class="py-4">From time alignment, crossover slopes and gain control, each step brings
                                     you close to
-                                    audio nirvana.</p>
+                                    audio nirvana.</p> -->
                             </li>
                             <li>
                                 <a href="#" class="text-maroon" style="text-underline-offset: 5px;">Find Out More</a>
@@ -409,123 +408,7 @@
     <!-- Still have a question -->
 
     <!-- footer section -->
-    <section class="footer pt-5 bg-black text-offgrey">
-        <div class="container">
-            <div class="row border-bottom">
-                <div class="col-md-6">
-                    <div class="link-contact ">
-                        <div class="d-flex">
-                            <div class="quick-link">
-                                <i class="fa fa-plus-circle pe-3" aria-hidden="true"></i>
-                                <a href="#" class="text-offgrey text-decoration-none fontw700">QuicK Links</a>
-                            </div>
-                            <div class="ms-4">
-                                <p class="fonwt500">Explore More Categories</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-end">
-                        <p class="fontw500"><span>021-323-323-22</span> | <span>hello@gmail.com</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row my-5">
-                <!-- <div class="col-lg-6 col-12"> -->
-                <!-- <div class="row"> -->
-                <div class="col-lg-4 col-12 col-sm-6">
-                    <h5>About</h5>
-                    <ul class="list-unstyled unoderList text-grey-three">
-                        <li class="mb-2 font-14 py-3">We are a team of audioheads, sound engineers, and all in all
-                            passionate
-                            about all things audio.</li>
-                        <li class="mb-2 font-14">Founded in 2018, we’ve established a small but specialized team to
-                            focus on reestablishing the Nakamichi brand name in home and mobile audio.</li>
-                        <li class="py-3">
-                            <a href="#" class="text-maroon text-decoration-underline"
-                                style="text-underline-offset: 5px;">Read More Here</a>
-                        </li>
-                    </ul>
-
-                    <div class="icons mb-3">
-
-                        <i class="fab fa-google p-2 font-14 ms-2"></i>
-                        <!--<i class="fab fa-apple p-2 font-14 ms-2"></i>-->
-                            <i class="fab fa-facebook p-2 font-14 ms-2"></i>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12 col-sm-6 mb-lg-3 my-3 my-md-0 px-3 px-lg-5">
-                    <h5 class="pb-3">Menu</h5>
-                    <ul class="list-unstyled unoderList text-grey-three">
-                        <li class="mb-2 font-14">Search</li>
-                        <li class="mb-2 font-14">Nakamichi History</li>
-                        <li class="mb-2 font-14">Product Registration</li>
-                        <li class="mb-2 font-14">Press and Media</li>
-                        <li class="mb-2 font-14">Privacy Policy</li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-12">
-                    <div class="heading">
-                        <h4 class="mb-3">NAKAMICHI NEWSLETTER</h4>
-                        <p>Subscribe to receive updates, access to exclusive deals, and more on our mobile audio
-                            products.</p>
-                    </div>
-
-                    <div class="subscribe_div">
-                        <div class="subscribe-text-Bar pt-3">
-                            <form class="shadowDiv">
-                                <div class="input-group border-round-00">
-                                    <input type="text" class="form-control form-control-sm"
-                                        style="border-radius: unset;" placeholder="Email Address"
-                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    <button class="btn btn-maroon-light py-2" style="border-radius: unset;"
-                                        type="button" id="button-addon1">SUBSCRIBE</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- <div class="col-md-12 pt-5">
-                    <div class="privacy d-flex justify-content-between">
-                        <h5>Privacy Policy</h5>
-                        <div class="socialLinks">
-                            <p class="text-black fontw600"><span>LinkedIn</span> / <span>Facebook</span> /
-                                <span>Instagram</span>
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <div class="col-md-12 py-3 border-top">
-                    <div class="privacy d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <div class=" bg-black">
-                                <div class="footer-logo">
-                                    <img src="{{asset('assets/img/logo.png')}}" alt="Logo" width="170" class="img-fluid">
-                                </div>
-
-                                <div class="copywrite">
-                                    <h6 class="text-offgrey font-13"><span>©</span>NIKAMICHI CAR AUDIO</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" text-end">
-                            <img src="{{asset('assets/img/method.png')}}" class="img-fluid w-50" alt="">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    @include("layouts.footer")
     <!-- footer section -->
 
     <!-- Bootstrap5 CDN -->

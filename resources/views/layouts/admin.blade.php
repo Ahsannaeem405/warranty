@@ -92,6 +92,23 @@
                     <i class="fas fa-address-card"></i>
                     <span>Profile</span></a>
             </li>
+            <li class="nav-item">
+            <div class="dropdown">
+  <a class="nav-link" style="cursor: pointer;"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <i class="fas fa-cog"></i>
+    Settings
+  </a>
+
+  
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{ route('logo') }}">Site Logo</a>
+    <a class="dropdown-item" href="{{ route('header') }}">Header</a>
+    <a class="dropdown-item" href="{{ route('section2') }}">Section 2</a>
+    <a class="dropdown-item" href="{{ route('section3') }}">Section 3</a>
+    <a class="dropdown-item" href="{{ route('section4') }}">Section 4</a>
+  </div>
+</div>
+            </li>
 
 
 

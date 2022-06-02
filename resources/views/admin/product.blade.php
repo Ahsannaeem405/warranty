@@ -11,9 +11,12 @@
         <button type="button" class="btn btn-primary float-right my-2" data-toggle="modal" data-target="#exampleModal">
            Add Product
           </button>
-          <button type="button" class="btn btn-primary float-right my-2 mx-2" data-toggle="modal" data-target="#exampleModalCSV">
+          <button type="button" class="btn btn-success float-right my-2 mx-2" data-toggle="modal" data-target="#exampleModalCSV">
            Import CSV
           </button>
+          <a download="sample_csv.csv" href="{{asset('sample_csv.csv')}}" class="btn btn-danger text-white float-right my-2" >
+           Donwload CSV Sample
+          </a>
         <div class="card" style="width:100%;">
 
             <div class="card-body">

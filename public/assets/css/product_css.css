@@ -9,12 +9,14 @@
 
 .w-20 {
     width: 20% !important;
+    margin: 2px;
 }
 
 .img_div {
-    min-height: 270px !important;
+    /* min-height: 270px !important; */
+    margin: 2px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .recent {

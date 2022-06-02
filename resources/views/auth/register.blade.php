@@ -11,8 +11,8 @@
 
 <body>
     <div class="wrapper">
-        <h1>Hello Again!</h1>
-        <p>Warrenty</p>
+        <h1>Register here</h1>
+        <p></p>
         <form  method="POST" action="{{ route('register') }}">
             @csrf
             <span>@error("name") {{$message}} @enderror</span>

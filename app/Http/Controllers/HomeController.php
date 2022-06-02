@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Models\Setting;
    
 class HomeController extends Controller
 {
@@ -25,7 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = Setting::find(1);
+        $return = ["setting" => $data];
+        return view('home', $return);
     }
   
     /**

@@ -13,12 +13,12 @@ function csvToArray($filename = '', $delimiter = ',')
         $counter = 0;
         while (($row = fgetcsv($handle, 1000, $delimiter)) !== false)
         {
-            // if (!$header)
-            //     $header = $row;
-            // else
+            if (!$header)
+                $header = $row;
+            else
             // dd($header);
             
-                $data[] = array_combine($head, $row);
+                $data[] = array_combine($header, $row);
         }
         fclose($handle);
     }

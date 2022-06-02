@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Setting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +28,9 @@ class DatabaseSeeder extends Seeder
                  'is_admin'=>'1',
                 'password'=> bcrypt('admin'),        
         ]);
+
+        Setting::create([
+            "id" => "1"     
+    ]);
     }
 }
