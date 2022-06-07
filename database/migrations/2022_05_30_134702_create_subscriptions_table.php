@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->text("user_id")->nullable();
+            // $table->integer("user_id")->nullable();
             $table->text("email")->nullable();
             $table->timestamps();
         });

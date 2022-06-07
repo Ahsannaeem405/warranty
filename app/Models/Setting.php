@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    public function updateFooter($data, $id){
+        return $this->where('id', $id)
+                                ->update($data);
+    }
 }

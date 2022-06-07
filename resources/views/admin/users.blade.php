@@ -9,9 +9,9 @@
                             <div class="card" style="width:100%;">
 
                                 <div class="card-body">
-                                    @if(session()->has("success"))
+                                   {{--  @if(session()->has("success"))
                                     <div class="alert alert-success"> {{session()->get("success")}} </div>
-                                    @endif
+                                    @endif --}}
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <thead>

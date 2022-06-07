@@ -4,12 +4,12 @@
                 <div class="col-md-6">
                     <div class="link-contact ">
                         <div class="d-flex">
-                            <div class="quick-link">
+                            {{-- <div class="quick-link">
                                 <i class="fa fa-plus-circle pe-3" aria-hidden="true"></i>
                                 <a href="#" class="text-offgrey text-decoration-none fontw700">QuicK Links</a>
-                            </div>
+                            </div> --}}
                             <div class="ms-4">
-                                <p class="fonwt500">Explore More Categories</p>
+                                <p class="fonwt500">{{  $setting->footer_top_left }}</p>
                             </div>
                         </div>
                     </div>
@@ -17,7 +17,7 @@
 
                 <div class="col-md-6">
                     <div class="d-flex justify-content-end">
-                        <p class="fontw500"><span>021-323-323-22</span> | <span>hello@gmail.com</span></p>
+                        <p class="fontw500"><span>{{  $setting->footer_top_right }}</span></p>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <!-- <div class="col-lg-6 col-12"> -->
                 <!-- <div class="row"> -->
                 <div class="col-lg-4 col-12 col-sm-6">
-                    <h5>About</h5>
+                    {{-- <h5>About</h5>
                     <ul class="list-unstyled unoderList text-grey-three">
                         <li class="mb-2 font-14 py-3">We are a team of audioheads, sound engineers, and all in all
                             passionate
@@ -37,7 +37,8 @@
                             <a href="#" class="text-maroon text-decoration-underline"
                                 style="text-underline-offset: 5px;">Read More Here</a>
                         </li>
-                    </ul>
+                    </ul> --}}
+                    {!! $setting->footer_description !!}
 
                     <div class="icons mb-3">
 
@@ -48,23 +49,25 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-12 col-sm-6 mb-lg-3 my-3 my-md-0 px-3 px-lg-5">
-                    <h5 class="pb-3">Menu</h5>
+                    {{-- <h5 class="pb-3">Menu</h5>
                     <ul class="list-unstyled unoderList text-grey-three">
                         <li class="mb-2 font-14 link"><a class="link" href="{{url('/')}}">Home</a></li>
                         <li class="mb-2 font-14 link"><a href="{{route('warranty-check')}}">Check Warranty</a></li>
                         @if(auth()->check())<li class="mb-2 font-14 link-info"> <a href="{{route('user-profile')}}">Profile</a></li>
                         <li class="mb-2 font-14 link-info"><a href="{{route('myproduct')}}">My Products</a> </li>@endif
                         <!-- <li class="mb-2 font-14">Privacy Policy</li> -->
-                    </ul>
+                    </ul> --}}
+                    {!!  $setting->footer_quick_link !!}
                 </div>
 
                 <div class="col-lg-4 col-12">
                     <div class="heading">
-                        <h4 class="mb-3">NAKAMICHI NEWSLETTER</h4>
+                        {{-- <h4 class="mb-3">NAKAMICHI NEWSLETTER</h4>
                         <p>Subscribe to receive updates, access to exclusive deals, and more on our mobile audio
-                            products.</p>
+                            products.</p> --}}
+                            {!!  $setting->footer_content_right !!}
                     </div>
-                    @if(auth()->check())
+                    {{-- @if(auth()->check()) --}}
                     <div class="subscribe_div">
                         <div class="subscribe-text-Bar pt-3">
                             <form class="shadowDiv">
@@ -73,12 +76,12 @@
                                         style="border-radius: unset;" placeholder="Email Address"
                                         aria-label="Example text with button addon" aria-describedby="button-addon1">
                                     <button class="btn btn-maroon-light py-2" style="border-radius: unset;"
-                                        type="button" id="button-addon1">SUBSCRIBE</button>
+                                        type="button" id="button-addon1">{{  $setting->footer_btn_text }}</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    @endif
+                    {{-- @endif --}}
                 </div>
             </div>
 
@@ -99,16 +102,16 @@
                         <div class="d-flex align-items-center">
                             <div class=" bg-black">
                                 <div class="footer-logo">
-                                    <img src="{{asset('assets/img/logo.png')}}" alt="Logo" width="170" class="img-fluid">
+                                    <img src="{{ asset('footer/' .  $setting->footer_logo)}}" alt="Logo" width="170" class="img-fluid">
                                 </div>
 
-                                <div class="copywrite">
+                                {{-- <div class="copywrite">
                                     <h6 class="text-offgrey font-13"><span>©</span>NIKAMICHI CAR AUDIO</h6>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class=" text-end">
-                            <img src="{{asset('assets/img/method.png')}}" class="img-fluid w-50" alt="">
+                            <img src="{{ asset('footer/'.  $setting->footer_cards)}}" class="img-fluid w-50" alt="">
                         </div>
                     </div>
                 </div>

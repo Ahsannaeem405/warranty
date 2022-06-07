@@ -43,7 +43,7 @@ body{
 }
 
 header {
-    background: url('../img/apm1.webp');
+    /* background: url('../img/apm1.webp'); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -230,7 +230,7 @@ header {
 
 /* tradition css */
 .tradition{
-    background-image: url('../img/Nakamichi_footer.webp');
+    /* background-image: url('../img/Nakamichi_footer.webp'); */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

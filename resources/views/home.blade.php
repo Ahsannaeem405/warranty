@@ -31,9 +31,8 @@
 <body>
 @include("layouts.user-menu")
 
-<header class="">
-        
-
+<header class="" style="background: url('{{ asset('header/'.$setting->header_background) }}');">  
+{{--         <img class="header" src="{{ asset('header/'.$setting->header_background) }}"> --}}
         <section class="Banner mx-3 mx-md-0">
             <div class="container position-relative main mt-md-5 mt-3">
                 <div class="row z1 d-flex justify-content-center">
@@ -100,7 +99,7 @@
     <!-- NavBar section end -->
     <!-- steps -->
 
-    <section class="event-step" style="background-image: url('{{ isset($setting->section2_background) ? asset('sections/'.$setting->section2_background) : asset('assets/img/Nakamichi_footer.webp')}}'); background-position: center; background-size: cover;">
+    <section class="event-step" style="background-image: url('{{ asset('sections/'. $setting->section2_background) }}'); background-position: center; background-size: cover;">
         <div class="container bg-transparent" id="main_container">
             <div class="card border-0">
                 <div class="form">
@@ -117,10 +116,10 @@
                         </div>
                         <ul class="progress-bar-1 mt-1"
                             style="display: flex;flex-direction: column;justify-content: center;overflow: hidden;color: #fff;text-align: center;white-space: nowrap;transition: width .6s ease;">
-                            <li class="active-section">What is SKU and <br> Serial Number</li>
-                            <li>Search</li>
-                            <li>Result</li>
-                            <li>Processing</li>
+                            <li class="active-section">{{ $setting->section1_title }}</li>
+                            <li>{{ $setting->section2_title }}</li>
+                            <li>{{ $setting->section3_title }}</li>
+                            <li>{{ $setting->section4_title }}</li>
                         </ul>
 
 
@@ -128,21 +127,20 @@
                     </div>
                     <div class="right-side">
                         <div class="main-part active-section" style="padding:36px;">
-                            <div class="text">
+                           {{--  <div class="text">
                                 <h2> {{isset($setting->stepbox_title) ? $setting->stepbox_title : 'What is SKU and Serial Number'}} </h2>
                                 <p>Check a single product warranty using SKU and Serial Code</p>
-                            </div>
+                            </div> --}}
 
-                            <div class="Sku-detail">
+                            {{-- <div class="Sku-detail">
                                 <h4>What is SKU?</h4>
                                 <p class="">{{isset($setting->ans_of_q1) ? $setting->ans_of_q1 : 'SKU numbers are important for every store to use because they make life way
                                     easier. Each SKU is recorded within your internal tracking system.'}}</p>
-                            </div>
+                            </div> --}}
 
                             <div class="serial-detail">
-                                <h4>What is Serial Number?</h4>
-                                <p class="mb-0">{{isset($setting->ans_of_q2) ? $setting->ans_of_q2 : 'Serial numbers are important for every store to use because they make life way
-                                    easier. Each SKU is recorded within your internal tracking system.'}}</p>
+                                {{-- <h4>What is Serial Number?</h4> --}}
+                                <p class="mb-0">{!! $setting->section1_description !!}</p>
                             </div>
 
 
@@ -157,22 +155,23 @@
                         <div class="main-part">
 
                             <div class="text">
-                                <h2>Search</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                {{-- <h2>{{ $setting->section2_title }}</h2> --}}
+                                <p>{!!  $setting->section2_description !!}</p>
                             </div>
-                            <p>{{isset($setting->search) ? $setting->search : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error consequuntur molestiae
-                                voluptate consequatur, harum ducimus?'}}</p>
+                           {{--  <p>{{isset($setting->search) ? $setting->search : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error consequuntur molestiae
+                                voluptate consequatur, harum ducimus?'}}</p> --}}
 
                             <div class="buttons button_space">
                                 <button class="back_button">Back</button>
                                 <button class="next_button">Next Step</button>
                             </div>
                         </div>
+
                         <div class="main-part">
 
                             <div class="text">
-                                <h2>Result</h2>
-                                <!-- <p>Please provide some of your information</p> -->
+                                {{-- <h2>Result</h2> --}}
+                                <p>{!!  $setting->section3_description !!}</p>
                             </div>
 
                             <!-- <div class="input-text">
@@ -219,8 +218,8 @@
                             </svg>
 
                             <div class="text congrats">
-                                <h2>Finish</h2>
-                                <!-- <p>Processing your information to help you onboard</p> -->
+                                {{-- <h2>Finish</h2> --}}
+                                <p>{!!  $setting->section4_description !!}</p>
                             </div>
                         </div>
 
@@ -234,21 +233,22 @@
 
     <!-- products -->
 
+<!-- Section 3 -->
 
     <section class="products">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center py-5">
-                    <p class="mb-0">WE ARE A TEAM OF AUDIOHEADS, SOUND ENGINEERS, AND FRIENDS.</p>
-                    <h3 class="">{{isset($setting->section3_title) ? $setting->section3_title : 'AND ALL PASSIONATE ABOUT ALL THINGS AUDIO.'}}</h3>
+                    <p class="mb-0">{{ $setting->section3_head_title }}</p>
+                    <h3 class="">{{$setting->section3_title}}</h3>
                 </div>
             </div>
 
             <div class="row">
-
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <div class="hero-text pt-4">
-                        <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
+                <div class="col-md-6">
+                    <div class="" style="padding-top: 60px;">
+                        {!! $setting->product_detail1 !!}
+                        {{-- <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
                             <li>
                                 <p class="">DIGITAL SIGNAL PROCESSORS</p>
                             </li>
@@ -269,7 +269,7 @@
                                 <!-- <a href="{{asset('assets/product_detail.html')}}" class="text-maroon"
                                     style="text-underline-offset: 5px;">Find Out More</a> -->
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
                 <div class="col-md-6 p-0 d-flex justify-content-center align-items-center">
@@ -287,9 +287,10 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <div class="hero-text pt-4">
-                        <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
+                <div class="col-md-6">
+                    <div class="" style="padding-top: 60px;">
+                        {!! $setting->product_detail2 !!}
+                        {{-- <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
                             <li>
                                 <p class="">DIGITAL SIGNAL PROCESSORS</p>
                             </li>
@@ -309,7 +310,7 @@
                             <li>
                                 <a href="#" class="text-maroon" style="text-underline-offset: 5px;">Find Out More</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>
@@ -318,21 +319,12 @@
     <!-- products -->
     <!-- tradition section -->
 
-    <section class="tradition vh-100 position-relative">
+    <section class="tradition vh-100 position-relative" style="background-image: url('{{ asset('sections/'. $setting->section4_background) }}'); ">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 fontw300">
                     <div class="text_Wrapper_section bg-white text-center position-absolute p-5">
-                        <div class="heading_Wrapper">
-                            <h3 class="font-17 fontw300">Nakamichi @ CES 2020</h3>
-                            <div class="ImageHero__BlockContent Rte">
-                                <p>Carrying on the tradition of our presence in the global audio market, Nakamichi was
-                                    present at this years CES 2020 featuring a wide range of both mobile audio and home
-                                    audio products.</p>
-                            </div>
-                            <a href="" class="text-decoration-none">Connect with us on Facebook to find
-                                out more</a>
-                        </div>
+                        <div class="heading_Wrapper">{!! $setting->s4_descrip  !!}</div>
                     </div>
                 </div>
             </div>
@@ -346,58 +338,49 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-12 overflow-hidden p-0">
-                    <div class="bg_image d-flex justify-content-center align-items-end">
-                        <div class="py-4 text-center">
-                            <h6 class="text-light my-4">DIGITAL SIGNAL PROCESSORS</h6>
-                            <h4 class="text-light my-4">TUNE YOUR SOUND</h4>
-                            <button class="btn btn-danger">Shop Now</button>
+                    <div class="bg_image position-relative"
+                        style="background-image: url('{{ asset('sections/'. $setting->sub_s4_img1) }}'); ">
+                        <div class="position-absolute text-white" style="top: 50%; text-align: center; left: 20%;">
+                            <p class="text-white">{!! $setting->sub_s4_title1 !!}</p>
+                            <button class="btn btn-danger">{{ $setting->sub_s4_btn1 }}</button>
 
                         </div>
-                        <div>
+                        {{-- <div>
 
 
-                        </div>
-
-
+                        </div> --}}
                     </div>
-
                 </div>
 
                 <div class="col-md-4 col-12 overflow-hidden p-0">
-                    <div class="bg_image d-flex justify-content-center align-items-end">
-                        <div class="py-4 text-center">
-                            <h6 class="text-light my-4">DIGITAL SIGNAL PROCESSORS</h6>
-                            <h4 class="text-light my-4">TUNE YOUR SOUND</h4>
-                            <button class="btn btn-danger">Shop Now</button>
+                    <div class="bg_image position-relative"
+                        style="background-image: url('{{ asset('sections/'. $setting->sub_s4_img2) }}'); ">
+                        <div class="position-absolute text-white" style="top: 51%; text-align: center; left: 20%;">
+                            <p class="text-white"> {!! $setting->sub_s4_title2 !!} </p>
+                            <button class="btn btn-danger">{{ $setting->sub_s4_btn2 }}</button>
 
                         </div>
-                        <div>
+                        {{-- <div>
 
-
-                        </div>
-
-
+    
+                        </div> --}}
                     </div>
-
                 </div>
 
 
-                <div class="col-md-4 col-12 overflow-hidden p-0">
-                    <div class="bg_image d-flex justify-content-center align-items-end">
-                        <div class="py-4 text-center">
-                            <h6 class="text-light my-4">DIGITAL SIGNAL PROCESSORS</h6>
-                            <h4 class="text-light my-4">TUNE YOUR SOUND</h4>
-                            <button class="btn btn-danger">Shop Now</button>
+                 <div class="col-md-4 col-12 overflow-hidden p-0">
+                    <div class="bg_image position-relative"
+                        style="background-image: url('{{ asset('sections/'. $setting->sub_s4_img3) }}'); ">
+                        <div class="position-absolute text-white" style="top: 52%; text-align: center; left: 20%;">
+                            <p class="text-white"> {!! $setting->sub_s4_title3 !!} </p>
+                            <button class="btn btn-danger">{{ $setting->sub_s4_btn3 }}</button>
 
                         </div>
-                        <div>
+                        {{-- <div>
 
 
-                        </div>
-
-
+                        </div> --}}
                     </div>
-
                 </div>
 
 

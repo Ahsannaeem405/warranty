@@ -38,9 +38,15 @@
                         <label for="">Change Background image</label>
                         <input name="file" type="file" accept="image/*" data-default-file="{{ isset(auth()->user()->profile_pic) ? asset('upload/'.auth()->user()->profile_pic) : '' }}" class="dropify" data-height="100" />
                     </div> -->
+
+                    <div class="col-lg-12 col-12 mt-3">
+                        <label for="">Section Head title</label>
+                        <input name="head_title" value="{{$setting->section3_head_title}}" type="text"  class="form-control" data-height="100" />
+                    </div>
+
                     <div class="col-lg-12 col-12 mt-2">
                         <label for="">Section title</label>
-                        <input name="title" value="{{$setting->section3_title}}" type="text"  class="form-control" data-height="100" />
+                        <input name="title" value="{{$setting->section3_head_below_title}}" type="text"  class="form-control" data-height="100" />
                     </div>
 
                     <p class="h3 mt-4">Product 1</p>
@@ -49,22 +55,14 @@
                         <label for="">Product Image</label>
                         <input name="product1" type="file" accept="image/*" data-default-file="{{ asset('products/'.$setting->product_image1)  }}" class="dropify" data-height="100" />
                         </div>
-                    <div class="col-lg-12 col-12 mt-2">
+                    
+                    {{-- <div class="col-lg-12 col-12 mt-2">
                         <label for="">Product Title</label>
                         <input name="p1_title" type="text"  value="{{$setting->product_name1}}" class="form-control" data-height="100" />
-                    </div>
-                    <div class="col-lg-12 col-12 mt-2">
-                        <textarea name="p1_detail">{{$setting->product_detail1}} </textarea>
-                        <script>
-                            tinymce.init({
-                            selector: 'textarea',
-                            plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-                            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-                            toolbar_mode: 'floating',
-                            tinycomments_mode: 'embedded',
-                            tinycomments_author: 'Author name',
-                            });
-                        </script>
+                    </div> --}}
+                    
+                    <div class="col-lg-12 col-12 mt-2"> 
+                        <textarea name="p1_detail" placeholder="Enter Description"> {{$setting->product_detail1}} </textarea>
                     </div>
 
                     <p class="h3 mt-4">Product 2</p>
@@ -73,23 +71,16 @@
                         <label for="">Product Image</label>
                         <input name="product2" type="file" accept="image/*" data-default-file="{{ asset('products/'.$setting->product_image2)  }}" class="dropify" data-height="100" />
                         </div>
-                    <div class="col-lg-12 col-12 mt-2">
+                    
+                    {{-- <div class="col-lg-12 col-12 mt-2">
                         <label for="">Product Title</label>
                         <input name="p2_title" type="text" value="{{$setting->product_name2}}" class="form-control" data-height="100" />
                     </div>
+                     --}}
                     <div class="col-lg-12 col-12 mt-2">
-                        <textarea name="p2_detail">{{$setting->product_detail2}} </textarea>
-                        <script>
-                            tinymce.init({
-                            selector: 'textarea',
-                            plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-                            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-                            toolbar_mode: 'floating',
-                            tinycomments_mode: 'embedded',
-                            tinycomments_author: 'Author name',
-                            });
-                        </script>
+                        <textarea name="p2_detail" placeholder="Enter Description">{{$setting->product_detail2}} </textarea>
                     </div>
+                    
                     <div class="col-lg-12 col-12 mt-4">
                         <button class="btn btn-primary save_profile" type="submit" style="float: right;">Update</button>
                     </div>
@@ -109,6 +100,69 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <script>
+
+    tinymce.init({
+        selector: 'textarea', 
+        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+        editimage_cors_hosts: ['picsum.photos'],
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        toolbar_sticky: true,
+        autosave_ask_before_unload: true,
+        autosave_interval: '30s',
+        autosave_prefix: '{path}{query}-{id}-',
+        autosave_restore_when_empty: false,
+        autosave_retention: '2m',
+        image_advtab: true,
+        link_list: [
+            { title: 'My page 1', value: 'https://www.tiny.cloud' },
+            { title: 'My page 2', value: 'http://www.moxiecode.com' }
+        ],
+        image_list: [
+            { title: 'My page 1', value: 'https://www.tiny.cloud' },
+            { title: 'My page 2', value: 'http://www.moxiecode.com' }
+        ],
+        image_class_list: [
+            { title: 'None', value: '' },
+            { title: 'Some class', value: 'class-name' }
+        ],
+        importcss_append: true,
+        file_picker_callback: (callback, value, meta) => {
+            /* Provide file and text for the link dialog */
+            if (meta.filetype === 'file') {
+                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+            }
+
+            /* Provide image and alt text for the image dialog */
+            if (meta.filetype === 'image') {
+                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+            }
+
+            /* Provide alternative source and posted for the media dialog */
+            if (meta.filetype === 'media') {
+                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+            }
+        },
+        templates: [
+            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+        ],
+        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+        image_caption: true,
+        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+        noneditable_class: 'mceNonEditable',
+        toolbar_mode: 'sliding',
+        contextmenu: 'link image table',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+    });
+
+    tinymce.init({
+        selector: 'textarea#default-editor'
+    });
+
+
     $(document).ready(function(){
         $(".save_profile").on("click", function(event){
             var new_pass = $(".password").val();
