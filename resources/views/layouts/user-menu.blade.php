@@ -1,3 +1,7 @@
+@php
+   $setting = \App\Models\Setting::first();
+
+@endphp
 <section class="navigationBar">
             <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark py-lg-3">
                 <div class="container-fluid">
@@ -118,11 +122,11 @@
   <a id="logout" class="dropdown-item" href="{{ url('logout-user') }}">
         {{ __('Logout') }}
     </a>
-    
+
   </div>
 </div>
 
-                                   
+
                             @else
                             <a href="{{route('login')}}" class="btn btn-outline-dark border-light text-white me-2"
                                 type="submit">Login</a>

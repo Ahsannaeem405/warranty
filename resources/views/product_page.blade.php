@@ -32,7 +32,7 @@
             </div>
             <!-- <div class="col-12 border py-2">
                 <select class="form-select form-select-sm w-20 float-end " aria-label=".form-select-sm example">
-                   
+
                     <option selected>Sort</option>
                     <option value="1">FEATURED </option>
                     <option value="2">BEST SELLING</option>
@@ -57,23 +57,45 @@
                     });
     </script>
     @endif
-            @foreach($myproducts as $myproduct)
+{{--            {{dd($myProducts)}}--}}
+            @if($myProducts->count() > 1)
+                @foreach($myProducts as $myproduct)
+                    {{--{{dd($myproduct)}}--}}
+                    <div class="col-lg-3 col-md-4 col-6 py-2 text-center shadow shadow-lg  border border-3">
+                        <div class="img_div">
+                            <a href="{{route('product_detail', ['product_id' => $myproduct->product_id])}}"><img src="{{isset($myproduct->image) ? $myproduct->image : asset('assets/img/NC-501_400x.webp')}}" class="img-fluid" alt=""></a>
+                        </div>
 
-            <div class="col-lg-3 col-md-4 col-6 py-2 text-center shadow shadow-lg  border border-3">
-                <div class="img_div">
-                    <a href="{{route('product_detail', ['product_id' => $myproduct->id])}}"><img src="{{isset($myproduct->image) ? $myproduct->image : asset('assets/img/NC-501_400x.webp')}}" class="img-fluid" alt=""></a>
+                        <p class="h5 text-danger mt-2 fw-bold">{{$myproduct->name}}</p>
+                        <p class="card-text text-grey-three font-12"><strong>SKU: </strong> {{$myproduct->sku}} | <strong>Serial No.: </strong> {{$myproduct->serial_no}}
+                        </p>
+                        {{--                <p class="m-0"> <strong>Price: </strong> ${{$myproduct->price}}</p>--}}
+                        {{--                <p class="m-0"> <strong>Expiry:  </strong> {{\Carbon\Carbon::create($myproduct->expiry_date)->format("d M, Y")}}</p>--}}
+                        {{--                <p class=""> <strong>Purchased Date: </strong> {{\Carbon\Carbon::create($myproduct->purchased_date)->format("d M, Y")}}</p>--}}
+
+                        <a id="trash_it"  href="{{route('product-remove', ['id' => $myproduct->product_id])}}" class="btn border border-danger text-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></a>
+                        <a  href="{{route('product_detail', ['product_id' => $myproduct->id])}}" class="btn border border-success text-success btn-sm btn-rounded"><i class="fa fa-eye"></i></a>
+
+                    </div>
+                @endforeach
+            @else
+                <div class="col-lg-3 col-md-4 col-6 py-2 text-center shadow shadow-lg  border border-3">
+                    <div class="img_div">
+                        <a href="{{route('product_detail', ['product_id' => $myProducts->product_id])}}"><img src="{{isset($myProducts->image) ? $myProducts->image : asset('assets/img/NC-501_400x.webp')}}" class="img-fluid" alt=""></a>
+                    </div>
+
+                    <p class="h5 text-danger mt-2 fw-bold">{{$myProducts->name}}</p>
+                    <p class="card-text text-grey-three font-12"><strong>SKU: </strong> {{$myProducts->sku}} | <strong>Serial No.: </strong> {{$myProducts->serial_no}}
+                    </p>
+                    {{--                <p class="m-0"> <strong>Price: </strong> ${{$myproduct->price}}</p>--}}
+                    {{--                <p class="m-0"> <strong>Expiry:  </strong> {{\Carbon\Carbon::create($myproduct->expiry_date)->format("d M, Y")}}</p>--}}
+                    {{--                <p class=""> <strong>Purchased Date: </strong> {{\Carbon\Carbon::create($myproduct->purchased_date)->format("d M, Y")}}</p>--}}
+
+                    <a id="trash_it"  href="{{route('product-remove', ['id' => $myProducts->product_id])}}" class="btn border border-danger text-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></a>
+                    <a  href="{{route('product_detail', ['product_id' => $myProducts->product_id])}}" class="btn border border-success text-success btn-sm btn-rounded"><i class="fa fa-eye"></i></a>
+
                 </div>
-
-                <p class="h5 text-danger mt-2 fw-bold">{{$myproduct->name}}</p>
-                <p class="m-0"> <strong>Price: </strong> ${{$myproduct->price}}</p>
-                <p class="m-0"> <strong>Expiry:  </strong> {{\Carbon\Carbon::create($myproduct->expiry_date)->format("d M, Y")}}</p>
-                <p class=""> <strong>Purchased Date: </strong> {{\Carbon\Carbon::create($myproduct->purchased_date)->format("d M, Y")}}</p>
-
-                <a id="trash_it"  href="{{route('product-remove', ['id' => $myproduct->my_prodcut_id])}}" class="btn border border-danger text-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></a>
-                <a  href="{{route('product_detail', ['product_id' => $myproduct->id])}}" class="btn border border-success text-success btn-sm btn-rounded"><i class="fa fa-eye"></i></a>
-
-            </div>
-            @endforeach
+             @endif
             <!-- <div class="col-12 py-5 text-center">
                 <h4 class="recent">Recently Viewed</h4>
                 <div class="owl-carousel">

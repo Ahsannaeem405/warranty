@@ -30,11 +30,11 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Price</th>
+{{--                                <th>Price</th>--}}
                                 <th>SKU</th>
                                 <th>Serial #</th>
-                                <th>Purchased</th>
-                                <th>Expiry</th>
+{{--                                <th>Purchased</th>--}}
+{{--                                <th>Expiry</th>--}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,11 +43,11 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Price</th>
+{{--                                <th>Price</th>--}}
                                 <th>SKU</th>
                                 <th>Serial #</th>
-                                <th>Purchased</th>
-                                <th>Expiry</th>
+{{--                                <th>Purchased</th>--}}
+{{--                                <th>Expiry</th>--}}
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -61,11 +61,11 @@
                                     <img src="{{ $product->image }}"  class="rounded" width="100" alt="">
                                     </a>
                                 </td>
-                                <td>${{ $product->price }}</td>
+{{--                                <td>${{ $product->price }}</td>--}}
                                 <td>{{$product->sku}} </td>
                                 <td>{{$product->serial_no}} </td>
-                                <td>{{\Carbon\Carbon::create($product->purchased_date)->format("d M, Y")}} </td>
-                                <td>{{\Carbon\Carbon::create($product->expiry_date)->format("d M, Y")}} </td>
+{{--                                <td>{{\Carbon\Carbon::create($product->purchased_date)->format("d M, Y")}} </td>--}}
+{{--                                <td>{{\Carbon\Carbon::create($product->expiry_date)->format("d M, Y")}} </td>--}}
                                 <td>
                                     <a id="deleteproduct" href="{{ route('deleteproduct', ['id' => $product->id]) }}" class="deleteproduct btn btn-danger btn-sm btn-circle">
                                         <i class="fa fa-trash"></i>
@@ -104,26 +104,26 @@
                                     <label for="" class="pb-0">Serial #</label>
                                     <input name="serial" type="text" value="{{ $product->serial_no }}" class="form-control" required placeholder="">
                                 </div>
-                                <div class="col-6 py-2">
-                                    <label for="" class="pb-0">Price ( $ )</label>
-                                    <input name="price" type="number" value="{{ $product->price }}" class="form-control" required placeholder="">
-                                </div>
+{{--                                <div class="col-6 py-2">--}}
+{{--                                    <label for="" class="pb-0">Price ( $ )</label>--}}
+{{--                                    <input name="price" type="number" value="{{ $product->price }}" class="form-control" required placeholder="">--}}
+{{--                                </div>--}}
                                 <div class="col-6 py-2">
                                     <label for="" class="pb-0">SKU</label>
                                     <input name="sku" type="text" value="{{ $product->sku }}" class="form-control" required placeholder="">
                                 </div>
-                                <div class="col-6 py-2">
-                                    <label for="" class="pb-0">Expiry Date</label>
-                                    <input name="expiry" type="date" value="{{ $product->expiry_date }}" class="form-control" required value="" max="">
-                                </div>
-                                <div class="col-6 py-2">
-                                    <label for="" class="pb-0">Purchaed Date</label>
-                                    <input name="purchased" type="date" value="{{ $product->purchased_date }}" class="form-control" required value="" max="">
-                                </div>
-                                <div class="col-12 py-2">
-                                    <label for="" class="pb-0">Description</label>
-                                    <textarea name="description" id="" value="" class="form-control" required rows="2">{{ $product->description }}</textarea>
-                                </div>
+{{--                                <div class="col-6 py-2">--}}
+{{--                                    <label for="" class="pb-0">Expiry Date</label>--}}
+{{--                                    <input name="expiry" type="date" value="{{ $product->expiry_date }}" class="form-control" required value="" max="">--}}
+{{--                                </div>--}}
+{{--                                <div class="col-6 py-2">--}}
+{{--                                    <label for="" class="pb-0">Purchaed Date</label>--}}
+{{--                                    <input name="purchased" type="date" value="{{ $product->purchased_date }}" class="form-control" required value="" max="">--}}
+{{--                                </div>--}}
+{{--                                <div class="col-12 py-2">--}}
+{{--                                    <label for="" class="pb-0">Description</label>--}}
+{{--                                    <textarea name="description" id="" value="" class="form-control" required rows="2">{{ $product->description }}</textarea>--}}
+{{--                                </div>--}}
 
                             </div>
                             <button type="submit" class="btn btn-primary">Update Product</button>
@@ -175,26 +175,26 @@
                                     <label for="" class="pb-0">Serial #</label>
                                     <input name="serial" type="text" class="form-control" required placeholder="">
                                 </div>
-                                <div class="col-6 py-2">
-                                    <label for="" class="pb-0">Price ( in $ )</label>
-                                    <input name="price" type="number" class="form-control" required placeholder="">
-                                </div>
+{{--                                <div class="col-6 py-2">--}}
+{{--                                    <label for="" class="pb-0">Price ( in $ )</label>--}}
+{{--                                    <input name="price" type="number" class="form-control" required placeholder="">--}}
+{{--                                </div>--}}
                                 <div class="col-6 py-2">
                                     <label for="" class="pb-0">SKU</label>
                                     <input name="sku" type="text" class="form-control" required placeholder="">
                                 </div>
-                                <div class="col-6 py-2">
-                                    <label for="" class="pb-0">Expiry Date</label>
-                                    <input name="expiry" type="date" class="form-control" required value="" max="">
-                                </div>
-                                <div class="col-6 py-2">
-                                    <label for="" class="pb-0">Purchaed Date</label>
-                                    <input name="purchased" type="date" class="form-control" required value="" max="">
-                                </div>
-                                <div class="col-12 py-2">
-                                    <label for="" class="pb-0">Description</label>
-                                    <textarea name="description" id="" class="form-control" required rows="2"></textarea>
-                                </div>
+{{--                                <div class="col-6 py-2">--}}
+{{--                                    <label for="" class="pb-0">Expiry Date</label>--}}
+{{--                                    <input name="expiry" type="date" class="form-control" required value="" max="">--}}
+{{--                                </div>--}}
+{{--                                <div class="col-6 py-2">--}}
+{{--                                    <label for="" class="pb-0">Purchaed Date</label>--}}
+{{--                                    <input name="purchased" type="date" class="form-control" required value="" max="">--}}
+{{--                                </div>--}}
+{{--                                <div class="col-12 py-2">--}}
+{{--                                    <label for="" class="pb-0">Description</label>--}}
+{{--                                    <textarea name="description" id="" class="form-control" required rows="2"></textarea>--}}
+{{--                                </div>--}}
 
                             </div>
                             <button type="submit" class="btn btn-primary">Add Product</button>
@@ -249,11 +249,11 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script> 
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
 
-    
+
 <script>
     $(document).ready(function(){
         // $('#dataTable').DataTable();
@@ -276,7 +276,7 @@
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-                
+
             if (result.isConfirmed) {
 
             Swal.fire({
@@ -284,8 +284,8 @@
                 text: 'Your file has been deleted.',
                 icon: 'success',
             })
-                
-                
+
+
                 window.location.href= link;
             }else {
                 swal.fire({

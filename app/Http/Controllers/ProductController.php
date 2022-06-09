@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
-
     public function add_product(Request $request){
         return $request;
     }
 
     public function warrantyFind(Request $request){
-        // return 
+        // return
         // $request->validate([
         //     "sku" => "required",
         //     "serial_number" => "required",
@@ -41,12 +40,12 @@ class ProductController extends Controller
         $csv_array = csvToArray($request->file("csv"));
         for ($i = 1; $i < count($csv_array); $i++)
         {
-            $csv_array[$i]["purchased_date"] = Carbon::create($csv_array[$i]["purchased_date"])->format("Y-m-d");
-            $csv_array[$i]["expiry_date"] = Carbon::create($csv_array[$i]["expiry_date"])->format("Y-m-d");
+//            $csv_array[$i]["purchased_date"] = Carbon::create($csv_array[$i]["purchased_date"])->format("Y-m-d");
+//            $csv_array[$i]["expiry_date"] = Carbon::create($csv_array[$i]["expiry_date"])->format("Y-m-d");
             Product::create($csv_array[$i]);
         }
         Session::flash("success","Records inserted successfully!");
-        return back();    
+        return back();
     }
 
     public function deleteproduct(Request $request){
@@ -62,7 +61,7 @@ class ProductController extends Controller
     }
 
     public function saveProduct(Request $request){
-        // return $request; 
+        // return $request;
         // if($request->hasfile("file")){
         //     $file = $request->file("file");
         //     $extenssion = $file->getClientOriginalExtension();
@@ -76,37 +75,37 @@ class ProductController extends Controller
         //     }else{
         //         $name = "";
         //     }
-            
+
         // }
         $name = $request->file;
         $product = new Product;
         $product->name = $request->name;
         $product->user_id = auth()->user()->id;
         $product->image = $name;
-        $product->price = $request->price;
+//        $product->price = $request->price;
         $product->serial_no = $request->serial;
-        $product->expiry_date = $request->expiry;
-        $product->purchased_date = $request->purchased;
+//        $product->expiry_date = $request->expiry;
+//        $product->purchased_date = $request->purchased;
         $product->sku = $request->sku;
-        $product->description = $request->description;
+//        $product->description = $request->description;
         if($request->id){
             Product::where("id", $request->id)->update([
                 "name" => $request->name,
                 "user_id" => auth()->user()->id,
                 "image" => $name,
-                "price" => $request->price,
+//                "price" => $request->price,
                 "sku" => $request->sku,
-                "expiry_date" => $request->expiry,
-                "purchased_date" => $request->purchased,
+//                "expiry_date" => $request->expiry,
+//                "purchased_date" => $request->purchased,
                 "serial_no" => $request->serial,
-                "description" => $request->description
+//                "description" => $request->description
             ]);
             session()->flash("success", "Product updated successfully!");
         }else{
             $product->save();
             session()->flash("success", "Product added successfully!");
         }
-           
+
         return redirect()->route("productList");
     }
 }

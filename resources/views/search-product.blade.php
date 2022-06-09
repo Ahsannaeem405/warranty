@@ -49,13 +49,13 @@
                                                     <p class="card-text text-grey-three font-12"><strong>SKU: </strong> {{$find->sku}} | <strong>Serial No.: </strong> {{$find->serial_no}}
                                                         </p>
                                                 </div>
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">Price</p>
-                                                </div>
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>${{$find->price}}</h4>
-                                                    </div>
+{{--                                                <div>--}}
+{{--                                                    <p class="font-9 mb-0 my-3">Price</p>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="pricing-review d-flex justify-content-between">--}}
+{{--                                                    <div class="pricing">--}}
+{{--                                                        <h4>${{$find->price}}</h4>--}}
+{{--                                                    </div>--}}
                                                     <!-- <div class="font-10">
                                                         <span class="fa fa-star checked"></span>
                                                         <span class="fa fa-star checked"></span>
@@ -66,43 +66,43 @@
                                                             <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
                                                         </div>
                                                     </div> -->
-                                                </div>
+{{--                                                </div>--}}
                                             </div>
                                             <!-- <div class="variesDiv px-3">
                                                 <div class="pricing-varies">
                                                     <p class="mb-3 text-grey-one">Price Varies</p>
                                                 </div>
                                             </div> -->
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-check checked text-success font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1"><strong>Expiry Date: </strong> {{\Carbon\Carbon::create($find->expiry_date)->format("d M, Y")}} </p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-check text-center checked text-success font-10"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1"><strong>Purchase Date: </strong> {{\Carbon\Carbon::create($find->purchase_date)->format("d M, Y")}}
-                                                    </p>
-                                                </div>
+{{--                                            <div class="proceding px-3 d-flex">--}}
+{{--                                                <a><i class="fa fa-check checked text-success font-9"></i></a>--}}
+{{--                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1"><strong>Expiry Date: </strong> {{\Carbon\Carbon::create($find->expiry_date)->format("d M, Y")}} </p>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="proceding px-3 d-flex">--}}
+{{--                                                <div class="div d-flex pe-3">--}}
+{{--                                                    <a href="#" class=""><i--}}
+{{--                                                            class="fa fa-check text-center checked text-success font-10"></i></a>--}}
+{{--                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1"><strong>Purchase Date: </strong> {{\Carbon\Carbon::create($find->purchase_date)->format("d M, Y")}}--}}
+{{--                                                    </p>--}}
+{{--                                                </div>--}}
                                                 <!-- <div class="div d-flex">
                                                     <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
                                                     <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
                                                 </div> -->
-                                            </div>
+{{--                                            </div>--}}
                                             @if(auth()->check())
-                                            <a href="{{ route('add-product', ['product_id' => $find->id]) }}" class="btn btn-sm btn-danger"><i class="fa fa-plus"></i> Add Product</a>
+                                            <a href="{{ route('add-product', ['product_id' => $find->id]) }}" class="btn btn-sm btn-danger mt-3 mx-3"><i class="fa fa-plus"></i> Add Product</a>
                                             @endif
                                         </div>
                                     </div>
 
     <!-- NavBar section end -->
-    
+
     <!-- Warranty-check Section -->
         <section class="product-warranty">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        
+
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
     <!-- footer section -->
 
 
-    
+
     <!-- Bootstrap5 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -129,7 +129,7 @@
 
 
 
-<!-- 
+<!--
     <script src="./js/steper.js"></script> -->
 
 

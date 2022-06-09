@@ -20,8 +20,10 @@ class MyProductController extends Controller
     }
 
     public function productDetail(Request $request){
+//        dd($request->all());
         // return $request;
         $product_detail = Product::where("id", $request->product_id)->first();
+        //dd($product_detail);
         $return = [
             "product_detail" => $product_detail,
         ];
@@ -30,21 +32,41 @@ class MyProductController extends Controller
 
 
     public function myproduct(){
-        $myproducts = MyProduct::where("my_products.user_id",auth()->user()->id)
-        ->join("products","products.id","my_products.product_id")
-        ->select("products.*", "my_products.id as my_prodcut_id")
-        ->get();
+        //dd('hello');
+        $Products = Product::find(1);
+        $myProducts = $Products->myProducts();
+        dd($myProducts);
+        //dd($myProducts);
+//        $myproductss = MyProduct::where("my_products.user_id",auth()->user()->id)
+//        ->join("products","products.id","my_products.product_id")
+//        ->select("products.*", "my_products.id as my_prodcut_id")
+//        ->get();
         // dd($myproducts);
-        $return=["myproducts" => $myproducts];
+        $return=["myProducts" => $myProducts];
         return view("product_page", $return);
     }
 
     public function add_product(Request $request){
         // return $request->product_id;
-        MyProduct::firstOrCreate([
-            "user_id" => auth()->user()->id,
-            "product_id" => $request->product_id,
-        ]);
+        //dd($request->product_id);
+        //dd($product);
+        $product = Product::find($request->product_id);
+
+        $data = [
+            'user_id' => auth()->user()->id,
+            'product_id' => $request->product_id,
+            'name' => $product->name,
+            'image' => $product->image,
+            'sku' => $product->sku,
+            'serial_no' => $product->serial_no,
+        ];
+
+        (new MyProduct())->addMyProduct($data);
+
+//        MyProduct::firstOrCreate([
+//            "user_id" => auth()->user()->id,
+//            "product_id" => $request->product_id,
+//        ]);
         session()->flash("added");
         return redirect()->route("home");
     }

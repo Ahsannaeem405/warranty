@@ -29,15 +29,15 @@
         <div class="card-wrapper" id="card-images">
             <div class="card">
                 <!-- card left -->
-                <div class="product-imgs">
-                    <div class="img-display">
-                        <div class="img-showcase">
-                            <img src="{{$product_detail->image}}" alt="shoe image">
-                            <img src="{{$product_detail->image}}" alt="shoe image">
-                            <img src="{{$product_detail->image}}" alt="shoe image">
-                            <img src="{{$product_detail->image}}" alt="shoe image">
-                        </div>
-                    </div>
+{{--                <div class="product-imgs">--}}
+{{--                    <div class="img-display">--}}
+{{--                        <div class="img-showcase">--}}
+{{--                            <img src="{{$product_detail->image}}" alt="shoe image">--}}
+{{--                            <img src="{{$product_detail->image}}" alt="shoe image">--}}
+{{--                            <img src="{{$product_detail->image}}" alt="shoe image">--}}
+{{--                            <img src="{{$product_detail->image}}" alt="shoe image">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <!-- <div class="img-select">
                         <div class="img-item">
                             <a href="#" data-id="1">

@@ -1,3 +1,7 @@
+@php
+    $setting = \App\Models\Setting::first();
+
+@endphp
 <section class="footer pt-5 bg-black text-offgrey">
         <div class="container">
             <div class="row border-bottom">
@@ -189,6 +193,6 @@
                     })
                 }
             });
-            
+
         })
     </script>
