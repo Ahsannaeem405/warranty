@@ -92,6 +92,7 @@
                             <div class="col-lg-5">
                                 <p class="card-text text-grey-three font-12"><strong>Expiry:<br></strong> {{date('F d, Y', strtotime($myproduct->expiry))}}</p>
                             </div>
+                            
                         </div>
                     </div>
                 @endforeach
