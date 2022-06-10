@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->text("user_id")->nullable();
             $table->text("product_id")->nullable();
+            $table->string('date_of_purchase', 10);
+            $table->string('country_of_purchase', 20);
+            $table->string('dealer_name', 30);
+            $table->string('expiry', 10);
             $table->timestamps();
         });
     }

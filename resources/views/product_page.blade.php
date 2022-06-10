@@ -55,8 +55,9 @@
                         showConfirmButton: false,
                         timer: 2500
                     });
-    </script>
-    @endif
+            </script>
+            @endif
+            
 {{--            {{dd($myProducts)}}--}}
             @if($myProducts->count() > 1)
                 @foreach($myProducts as $myproduct)

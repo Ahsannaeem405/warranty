@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Setting;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -70,9 +71,20 @@ class DatabaseSeeder extends Seeder
             'footer_content_right' => '<h5>NAKAMICHI NEWSLETTER</h5> <p> Subscribe to receive updates, access to exclusive deals, and more on our mobile audio products. </p>',
             'footer_btn_text' => 'SUBSCRIBE',
             'footer_logo' => 'logo.png',
-            'footer_cards' => 'method.png'
+            'footer_cards' => 'method.png',
 
     ]);
+
+        Product::create([
+            'id' => '1',
+            'user_id' => '1',
+            'name' => 'xyz',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgfWpeA7uTbD-OhGbXU20DGTP5goSok4hVpA&usqp=CAU',
+            'sku' => '111',
+            'serial_no' => '111',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
     }
 }

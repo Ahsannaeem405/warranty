@@ -33,14 +33,13 @@ class MyProductController extends Controller
 
     public function myproduct(){
         //dd('hello');
-        $Products = Product::find(1);
-        $myProducts = $Products->myProducts();
-        dd($myProducts);
+        //$Products = Product::find(1);
+       // $myProducts = $Products->myProducts();
         //dd($myProducts);
-//        $myproductss = MyProduct::where("my_products.user_id",auth()->user()->id)
-//        ->join("products","products.id","my_products.product_id")
-//        ->select("products.*", "my_products.id as my_prodcut_id")
-//        ->get();
+        //dd($myProducts);
+       $myproductss = MyProduct::where("my_products.user_id",auth()->user()->id)
+       ->join("products","products.id","my_products.product_id")
+       ->select("products.*", "my_products.id as my_prodcut_id", 'my_products.date_of_purchase', 'my_products.country_of_purchase', 'my_products.dealer_name', 'my_products.expiry')->get();
         // dd($myproducts);
         $return=["myProducts" => $myProducts];
         return view("product_page", $return);
@@ -49,7 +48,7 @@ class MyProductController extends Controller
     public function add_product(Request $request){
         // return $request->product_id;
         //dd($request->product_id);
-        //dd($product);
+        dd($request->all());
         $product = Product::find($request->product_id);
 
         $data = [

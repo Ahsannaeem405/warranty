@@ -31,6 +31,18 @@
 
  @include("layouts.user-menu")
 
+            @if(session()->has("success"))
+                <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'My Product added successfully!',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                </script>
+            @endif
 
                                     <div class="col-md-4 mb-5 mt-5 m-auto ">
                                         <div class="card shadowDiv shadow shadow-lg border-rounded-1 border-1 pb-3">
@@ -90,11 +102,73 @@
                                                 </div> -->
 {{--                                            </div>--}}
                                             @if(auth()->check())
-                                            <a href="{{ route('add-product', ['product_id' => $find->id]) }}" class="btn btn-sm btn-danger mt-3 mx-3"><i class="fa fa-plus"></i> Add Product</a>
+                                            <a href="#" class="btn btn-sm btn-danger mt-3 mx-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Add Product</a>
                                             @endif
                                         </div>
                                     </div>
 
+
+
+
+<!-- Start Model -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">My Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body p-5">
+                <form action="{{ route('add-product') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                    <input type="hidden" name="product_id" value="{{ $find->id }}">
+    
+
+                    <div class="row">
+                        <div class="col-6 py-2">
+                            <label for="" class="pb-0">Country of Purchase</label>
+                            <select name="country_id" class="form-control">
+                                <option select>Select Country</option>
+                                <option value="1">Pakistan</option>
+                                <option value="2">China</option>
+                                <option value="3">Japan</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6 py-2">
+                            <label for="" class="pb-0">Dealer Name</label>
+                            <input name="dealer_name" type="text" class="form-control" required placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 py-1">
+                            <label for="" class="pb-0">Date of Purchase</label>
+                            <input name="date_of_purchase" type="date" value="" class="form-control" data-height="100" required />
+                        </div>
+
+                        {{-- <div class="col-6 py-2">
+                            <label for="" class="pb-0">Expiry</label>
+                            <input name="expiry" type="date" class="form-control" required placeholder="">
+                        </div> --}}
+                    </div>
+
+                    <div class="row pt-3">
+                        <div class="col-lg-12 text-start">
+                            <button type="submit" class="btn btn-primary">Add My Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>                
+        </div>
+    </div>
+ </div>
+
+  
     <!-- NavBar section end -->
 
     <!-- Warranty-check Section -->

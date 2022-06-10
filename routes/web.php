@@ -99,7 +99,7 @@ Route::middleware([
 
 Route::group( [ 'middleware' =>'auth', 'auth_user' ], function(){
 
-        Route::get("/add-product", [MyProductController::class, "add_product"])->name("add-product");
+        Route::post("/add-product", [MyProductController::class, "add_product"])->name("add-product");
         Route::get('warranty-check', [ProductController::class, "warrantyCheck"])->name("warranty-check");
         Route::post("/warranty-found", [ProductController::class, "warrantyFind"])->name("check_warranty");
         Route::get("/my-product", [MyProductController::class, "myproduct"])->name("myproduct");
