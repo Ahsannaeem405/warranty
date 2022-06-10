@@ -38,11 +38,16 @@ class ProductController extends Controller
     public function saveCSV(Request $request){
 
         $csv_array = csvToArray($request->file("csv"));
+        $user_id = auth()->user()->id;
         for ($i = 1; $i < count($csv_array); $i++)
         {
-//            $csv_array[$i]["purchased_date"] = Carbon::create($csv_array[$i]["purchased_date"])->format("Y-m-d");
-//            $csv_array[$i]["expiry_date"] = Carbon::create($csv_array[$i]["expiry_date"])->format("Y-m-d");
-            Product::create($csv_array[$i]);
+            Product::create([
+                'user_id' => $user_id,
+                 'name' => $csv_array[$i]["name"],
+                 'image' => $csv_array[$i]["image"],
+                 'sku' => $csv_array[$i]["sku"],
+                 'serial_no' => $csv_array[$i]["serial_no"],
+            ]);
         }
         Session::flash("success","Records inserted successfully!");
         return back();

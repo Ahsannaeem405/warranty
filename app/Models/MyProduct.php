@@ -12,17 +12,17 @@ class MyProduct extends Model
     protected $fillable = [
         'user_id',
         'product_id',
-        'name',
-        'image',
-        'sku',
-        'serial_no'
+        'date_of_purchase',
+        'country_of_purchase',
+        'dealer_name',
+        'expiry'
     ];
 
     public function addMyProduct($data){
         return $this->create($data);
     }
 
-    public function product(){
-        return $this->belongsTo(Product::class);
-    }
+//    public function product(){
+//        return $this->belongsTo(Product::class);
+//    }
 }

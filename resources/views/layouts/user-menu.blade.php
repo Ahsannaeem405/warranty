@@ -16,7 +16,7 @@
                         <ul class="navbar-nav mx-auto me-md-auto mb-2 mb-md-0" id="navbar-nav">
                             <li class="nav-item mx-auto">
                                 <a class="nav-link active px-md-3 fontw500 text-white" aria-current="page"
-                                    href="{{route('home')}}">Home</a>
+                                    href="{{route('main')}}">Home</a>
                             </li>
 
                             <li class="nav-item mx-auto">

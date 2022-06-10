@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('my_products', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->text("user_id")->nullable();
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->string('date_of_purchase', 10);
-            $table->string('country_of_purchase', 20);
-            $table->string('dealer_name', 30);
-            $table->string('expiry', 10);
+            $table->string('name', 30);
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('my_products');
+        Schema::dropIfExists('countries');
     }
 };

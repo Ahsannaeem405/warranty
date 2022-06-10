@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Country;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -27,7 +28,7 @@ class DatabaseSeeder extends Seeder
                 'name'=>'Admin',
                 'email'=>'admin@admin.com',
                  'is_admin'=>'1',
-                'password'=> bcrypt('admin'),        
+                'password'=> bcrypt('admin'),
         ]);
 
         Setting::create([
@@ -82,9 +83,71 @@ class DatabaseSeeder extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgfWpeA7uTbD-OhGbXU20DGTP5goSok4hVpA&usqp=CAU',
             'sku' => '111',
             'serial_no' => '111',
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
 
+        Country::insert([
+           [
+               'id' => '1',
+               'name' => 'Pakistan'
+           ],
+
+            [
+                'id' => '2',
+                'name' => 'China'
+            ],
+            [
+                'id' => '4',
+                'name' => 'Japan'
+            ],
+            [
+                'id' => '5',
+                'name' => 'Afghanistan'
+            ],
+            [
+                'id' => '6',
+                'name' => 'Albania'
+            ],
+            [
+                'id' => '7',
+                'name' => 'Algeria'
+            ],
+            [
+                'id' => '8',
+                'name' => 'USA'
+            ],
+            [
+                'id' => '9',
+                'name' => 'Germany'
+            ],
+            [
+                'id' => '10',
+                'name' => 'France'
+            ],
+            [
+                'id' => '11',
+                'name' => 'Russia'
+            ],
+            [
+                'id' => '12',
+                'name' => 'Turkey'
+            ],
+            [
+                'id' => '13',
+                'name' => 'Turkey'
+            ],
+            [
+                'id' => '14',
+                'name' => 'United Arab Emirates'
+            ],
+            [
+                'id' => '15',
+                'name' => 'United Arab Emirates'
+            ],
+            [
+                'id' => '16',
+                'name' => 'United Kingdom'
+            ],
+
+        ]);
     }
 }

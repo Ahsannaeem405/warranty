@@ -12,24 +12,24 @@
     <title>Warrenty</title>
 
     <!-- Custom fonts for this template-->
-    
+
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{asset('assets/dropify/css/dropify.css')}}">
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"> --}}
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
-    
+
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Custom css -->
-    
+
     @yield("custom-css")
 
 </head>
@@ -92,6 +92,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="{{route('users-product')}}">
+                    <i class="fas fa-tasks"></i>
+                    <span>User Products</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.profile')}}">
                     <i class="fas fa-address-card"></i>
                     <span>Profile</span></a>
@@ -103,7 +109,7 @@
                     <i class="fa fa-rocket"></i>
                     <span>Subscriptions</span></a>
             </li>
-            
+
 
             <li class="nav-item">
                 <a href="#" class="nav-link link-secondary collapsed sidebar-items" aria-current="page" data-bs-toggle="collapse"
@@ -132,7 +138,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('section3') }}" class="nav-link link-secondary ps-4 
+                            <a href="{{ route('section3') }}" class="nav-link link-secondary ps-4
                             sidebar-nav-links" aria-current="page">
                                 {{-- <i class="fa fa-user"></i>&nbsp; --}}
                                 Section 3
@@ -372,7 +378,7 @@
 
                 @yield("content")
 
-                
+
             </div>
             <!-- End of Main Content -->
 
@@ -424,7 +430,7 @@
         </div>
     </div>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
     </script>
 
@@ -439,12 +445,12 @@
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
     <script src="{{ asset('tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-<script> 
+<script>
 
     @yield("custom-js")
 
     <!-- Page level plugins -->
-    
+
 
 </body>
 </html>

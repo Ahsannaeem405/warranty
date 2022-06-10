@@ -31,7 +31,7 @@
 <body>
 @include("layouts.user-menu")
 
-<header class="" style="background: url('{{ asset('header/'.$setting->header_background) }}');">  
+<header class="" style="background: url('{{ asset('header/'.$setting->header_background) }}');">
 {{--         <img class="header" src="{{ asset('header/'.$setting->header_background) }}"> --}}
         <section class="Banner mx-3 mx-md-0">
             <div class="container position-relative main mt-md-5 mt-3">
@@ -50,7 +50,7 @@
                 showConfirmButton: false,
                 timer: 2500
                 })
-            </script>      
+            </script>
             @endif
 
             @if(session()->has("added"))
@@ -63,7 +63,7 @@
                 showConfirmButton: false,
                 timer: 2500
                 })
-            </script>      
+            </script>
             @endif
                                     <form action="{{route('check_warranty')}}" method="POST">
                                         @csrf
@@ -71,19 +71,19 @@
                                             <input type="text" name="serial_number" value="">
                                             <label for="">Serial Number</label>
                                         </div>
-                                    
+
                                 </div>
 
                                 <div class="col-md-5 activities">
-                                    
+
                                         <div class="inputBox">
                                             <input type="text" name="sku" value="">
                                             <label for="">SKU</label>
                                         </div>
-                                    
+
                                 </div>
                                 <div class="col-md-2 searchbtn d-flex justify-content-center align-items-center">
-                                    
+
                                         <button class="btn btn-maroon-light p-2" type="submit"><i
                                                 class="fa fa-search font-26" aria-hidden="true"></i></button>
                                     </form>
@@ -179,7 +179,7 @@
                                 <input type="text" required require>
                                 <span>Experience 1</span>
                             </div>
-                            <div class="input-div"> 
+                            <div class="input-div">
                                 <input type="text" required require>
                                 <span>Position</span>
                             </div>
@@ -362,7 +362,7 @@
                         </div>
                         {{-- <div>
 
-    
+
                         </div> --}}
                     </div>
                 </div>

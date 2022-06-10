@@ -11,17 +11,14 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'image',
-        'price',
         'sku',
         'serial_no',
-        'expiry_date',
-        'purchased_date',
-        'description',
     ];
 
-    public function myProducts(){
-        return $this->hasMany(MyProduct::class);
-    }
+//    public function myProducts(){
+//        return $this->hasMany(MyProduct::class);
+//    }
 }

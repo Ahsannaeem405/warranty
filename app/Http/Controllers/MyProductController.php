@@ -33,31 +33,32 @@ class MyProductController extends Controller
 
     public function myproduct(){
         //dd('hello');
-        //$Products = Product::find(1);
-       // $myProducts = $Products->myProducts();
-        //dd($myProducts);
-        //dd($myProducts);
-       $myproductss = MyProduct::where("my_products.user_id",auth()->user()->id)
-       ->join("products","products.id","my_products.product_id")
-       ->select("products.*", "my_products.id as my_prodcut_id", 'my_products.date_of_purchase', 'my_products.country_of_purchase', 'my_products.dealer_name', 'my_products.expiry')->get();
+
+       $myproducts = MyProduct::where("my_products.user_id",auth()->user()->id)
+       ->join("products", "products.id","my_products.product_id")
+           ->join('countries', "countries.id", "my_products.country_of_purchase")
+       ->select("products.*", "my_products.id as product_id",
+           'my_products.date_of_purchase', 'my_products.country_of_purchase',
+           'my_products.dealer_name', 'my_products.expiry', 'countries.name as country_name')->get();
         // dd($myproducts);
-        $return=["myProducts" => $myProducts];
+        $return=["myProducts" => $myproducts];
         return view("product_page", $return);
     }
 
     public function add_product(Request $request){
-        // return $request->product_id;
-        //dd($request->product_id);
-        dd($request->all());
-        $product = Product::find($request->product_id);
+        //dd($request->all());
+        //$product = Product::find($request->product_id);
+
+        $purchase_date = $request->date_of_purchase;
+        $expiry = date('Y-m-d', strtotime('+1 year', strtotime($purchase_date)));
 
         $data = [
             'user_id' => auth()->user()->id,
             'product_id' => $request->product_id,
-            'name' => $product->name,
-            'image' => $product->image,
-            'sku' => $product->sku,
-            'serial_no' => $product->serial_no,
+            'country_of_purchase' => $request->country_id,
+            'dealer_name' => $request->dealer_name,
+            'date_of_purchase' => $request->date_of_purchase,
+            'expiry' => $expiry,
         ];
 
         (new MyProduct())->addMyProduct($data);

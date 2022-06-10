@@ -10,6 +10,7 @@ use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\MyProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UserProductsController;
 use App\Models\Setting;
 
 // use Database\Factories\ProductFactory;
@@ -54,7 +55,7 @@ Route::get('auth/facebook/callback', [FacebookController::class, 'facebookSignin
 
 
 Route::group(['middleware' => 'auth','auth_admin'], function() {
-    
+
     Route::get("admin/site-logo", [SettingController::class, "siteLogo"])->name("logo");
     Route::get("admin/site-header", [SettingController::class, "siteHeader"])->name("header");
     Route::get("admin/site-sections", [SettingController::class, "section2"])->name("section2");
@@ -79,6 +80,7 @@ Route::group(['middleware' => 'auth','auth_admin'], function() {
     Route::post("admin/profile/update", [UserController::class, 'updateProfile'])->name("update.profile")->middleware('is_admin');
     Route::get("admin/users/edit", [UserController::class, 'editUser'])->name("editUser")->middleware('is_admin');
     Route::get("admin/product/list", [ProductController::class, 'productList'])->name("productList")->middleware('is_admin');
+    Route::get("admin/users/products", [UserProductsController::class, 'index'])->name("users-product")->middleware('is_admin');
     Route::get("admin/product/delete", [ProductController::class, 'deleteproduct'])->name("deleteproduct")->middleware('is_admin');
     Route::get("admin/user/password", [UserController::class, 'checkpassword'])->name("checkpassword")->middleware('is_admin');
 
@@ -100,8 +102,8 @@ Route::middleware([
 Route::group( [ 'middleware' =>'auth', 'auth_user' ], function(){
 
         Route::post("/add-product", [MyProductController::class, "add_product"])->name("add-product");
-        Route::get('warranty-check', [ProductController::class, "warrantyCheck"])->name("warranty-check");
-        Route::post("/warranty-found", [ProductController::class, "warrantyFind"])->name("check_warranty");
+        Route::get('warranty-check', [ProductController::class, "warrantyCheck"])->name("warranty-check")->withoutMiddleware(['auth']);
+        Route::post("/warranty-found", [ProductController::class, "warrantyFind"])->name("check_warranty")->withoutMiddleware(['auth']);
         Route::get("/my-product", [MyProductController::class, "myproduct"])->name("myproduct");
         Route::get("/product-detail", [MyProductController::class, "productDetail"])->name("product_detail");
         Route::get("/user-profile", [UserController::class, "user_profile"])->name("user-profile");
@@ -113,7 +115,7 @@ Route::group( [ 'middleware' =>'auth', 'auth_user' ], function(){
         Route::get("/subscripe", [SubscriptionController::class, "subscription"])->name("subscripe");
         Route::get("/subscribers", [SubscriptionController::class, "index"])->name("get-subscribers");
         Route::get("/del{id}", [SubscriptionController::class, "destroy"])->name("del-subscriber");
-   
+
 });
 
 
