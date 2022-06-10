@@ -17,10 +17,10 @@ class SettingController extends Controller
     }
 
     public function updateFooter(Request $request){
-        //dd($request->footer_logo);
+        //dd($request->file());
 
         try{
-           
+
             $data = [
                 'footer_top_left' =>  $request->footer_top_left,
                 'footer_top_right' => $request->footer_top_right,
@@ -29,7 +29,7 @@ class SettingController extends Controller
                 'footer_content_right' => $request->footer_content_right,
                 'footer_btn_text' => $request->subscribe_btn_text
             ];
-
+        //dd($data);
             $setting = Setting::first();
 
             if($request->hasfile("footer_logo")){
@@ -41,7 +41,7 @@ class SettingController extends Controller
                 $file->move($destinationPath, $foter_logo);
             }
             else{
-                $$data['footer_logo'] = $setting->foter_logo;
+                $data['footer_logo'] = $setting->footer_logo;
             }
 
             if($request->hasfile("footer_cards")){
@@ -56,7 +56,7 @@ class SettingController extends Controller
                 $data['footer_cards'] = $setting->footer_cards;
             }
 
-            // dd($data);
+             //dd($data);
             (new Setting)->updateFooter($data, $setting->id);
 
             session()->flash("success", "Logo saved successfully!");
