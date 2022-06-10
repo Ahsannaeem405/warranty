@@ -120,23 +120,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            
+
             <div class="modal-body p-5">
                 <form action="{{ route('add-product') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="product_id" value="{{ $find->id }}">
-    
+
 
                     <div class="row">
                         <div class="col-6 py-2">
-                            <label for="" class="pb-0">Country of Purchase</label>
-                            <select name="country_id" class="form-control">
-                                <option select>Select Country</option>
-                                <option value="1">Pakistan</option>
-                                <option value="2">China</option>
-                                <option value="3">Japan</option>
-                            </select>
+                            <label>Country Name</label>
+                            <input type="text" name="country_name"
+                                   placeholder="Enter Country name" class="form-control" required>
                         </div>
 
                         <div class="col-6 py-2">
@@ -163,12 +159,12 @@
                         </div>
                     </div>
                 </form>
-            </div>                
+            </div>
         </div>
     </div>
  </div>
 
-  
+
     <!-- NavBar section end -->
 
     <!-- Warranty-check Section -->

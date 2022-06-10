@@ -32,16 +32,15 @@ class MyProductController extends Controller
 
 
     public function myproduct(){
-        //dd('hello');
 
        $myproducts = MyProduct::where("my_products.user_id",auth()->user()->id)
        ->join("products", "products.id","my_products.product_id")
-           ->join('countries', "countries.id", "my_products.country_of_purchase")
        ->select("products.*", "my_products.id as product_id",
            'my_products.date_of_purchase', 'my_products.country_of_purchase',
-           'my_products.dealer_name', 'my_products.expiry', 'countries.name as country_name')->get();
-        // dd($myproducts);
+           'my_products.dealer_name', 'my_products.expiry')->get();
+
         $return=["myProducts" => $myproducts];
+        //dd($return);
         return view("product_page", $return);
     }
 
@@ -55,7 +54,7 @@ class MyProductController extends Controller
         $data = [
             'user_id' => auth()->user()->id,
             'product_id' => $request->product_id,
-            'country_of_purchase' => $request->country_id,
+            'country_of_purchase' => $request->country_name,
             'dealer_name' => $request->dealer_name,
             'date_of_purchase' => $request->date_of_purchase,
             'expiry' => $expiry,

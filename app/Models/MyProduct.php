@@ -19,7 +19,9 @@ class MyProduct extends Model
     ];
 
     public function addMyProduct($data){
-        return $this->create($data);
+       // dd($data);
+        $test= $this->create($data);
+       // dd($test);
     }
 
 //    public function product(){

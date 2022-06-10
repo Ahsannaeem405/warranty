@@ -78,10 +78,12 @@
                             </div>
 
                             <div class="col-lg-5">
-                                <p class="card-text text-grey-three font-12"><strong>Country:</strong> {{$myproduct->country_name}}</p>
+                                <p class="card-text text-grey-three font-12"><strong>Country:</strong> {{$myproduct->country_of_purchase}}</p>
                             </div>
                         </div>
-
+                        <a id="trash_it"  href="{{route('product-remove', ['id' => $myproduct['product_id']])}}"
+                           class="btn border border-danger text-danger btn-sm btn-rounded">
+                            <i class="fa fa-trash"></i></a>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-lg-6">
                                 <p class="card-text text-grey-three font-12"><strong>Purchase Date:</strong> {{date('F d, Y', strtotime($myproduct->date_of_purchase))}}</p>
@@ -107,7 +109,7 @@
 {{--                    --}}{{--                <p class="m-0"> <strong>Expiry:  </strong> {{\Carbon\Carbon::create($myproduct->expiry_date)->format("d M, Y")}}</p>--}}
 {{--                    --}}{{--                <p class=""> <strong>Purchased Date: </strong> {{\Carbon\Carbon::create($myproduct->purchased_date)->format("d M, Y")}}</p>--}}
 
-{{--                    <a id="trash_it"  href="{{route('product-remove', ['id' => $myProducts['product_id']])}}" class="btn border border-danger text-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></a>--}}
+
 {{--                    <a  href="{{route('product_detail', ['product_id' => $myProducts['product_id']])}}" class="btn border border-success text-success btn-sm btn-rounded"><i class="fa fa-eye"></i></a>--}}
 
 {{--                    <div class="row">--}}

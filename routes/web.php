@@ -33,6 +33,10 @@ Route::get('/', function () {
     return view('home', $return);
 })->name('main');
 
+Route::get('password/forgot', function (){
+    return view('auth.forgot-password');
+})->name('forgot-password');
+
 Auth::routes();
 Route::get("/logout-user", function(){
     Auth::logout();

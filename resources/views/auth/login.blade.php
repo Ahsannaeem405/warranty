@@ -18,8 +18,8 @@
             @csrf
 
             <div class="mb-3">
-                <input type="email" name="email" value="{{ old('email') }}" 
-                    autofocus autocomplete="email" placeholder="Enter Email" 
+                <input type="email" name="email" value="{{ old('email') }}"
+                    autofocus autocomplete="email" placeholder="Enter Email"
                     class="@error('email') is-invalid @enderror"><br>
                 @error('email')
                 <span class="invalid feedback regis-error-message" role="alert">
@@ -29,8 +29,8 @@
             </div>
 
             <div class="mb-3">
-                <input type="password" name="password" value="{{ old('password') }}" 
-                    autofocus autocomplete="password" placeholder="Enter Password" 
+                <input type="password" name="password" value="{{ old('password') }}"
+                    autofocus autocomplete="password" placeholder="Enter Password"
                     class="@error('password') is-invalid @enderror"><br>
                 @error('password')
                 <span class="invalid feedback regis-error-message" role="alert">
@@ -49,16 +49,16 @@
             </p>
             <button>Sign in</button>
         </form>
-        
+
         <p class="or">
             ----- or continue with -----
         </p>
         <div class="icons">
             <a href="auth/google"><i class="fab fa-google" style="color: red;"></i></a>
-            
+
             <!-- <i class="fab fa-apple"></i> -->
             <a href="auth/facebook"><i class="fab fa-facebook"></i></a>
-            
+
         </div>
         <div class="not-member">
             Not have an account? <a href="{{route('register')}}">Register Now</a>
