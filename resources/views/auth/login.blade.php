@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!--bootstrap 5 cdn -->
