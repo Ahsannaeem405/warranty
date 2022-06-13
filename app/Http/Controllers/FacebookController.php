@@ -20,12 +20,12 @@ class FacebookController extends Controller
 
     public function facebookSignin()
     {
-        dd("Return from fb");
+//        dd("Return from fb");
         try {
-    
+
             $user = Socialite::driver('facebook')->user();
             $facebookId = User::where('facebook_id', $user->id)->first();
-     
+
             if($facebookId){
                 Auth::login($facebookId);
                 return redirect('/dashboard');
@@ -41,11 +41,11 @@ class FacebookController extends Controller
                     'facebook_id' => $user->id,
                     'password' => encrypt('john123')
                 ]);
-    
+
                 Auth::login($createUser);
                 return redirect('/dashboard');
             }
-    
+
         } catch (Exception $exception) {
             dd($exception->getMessage());
         }
