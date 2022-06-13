@@ -11,13 +11,11 @@ class UserProductsController extends Controller
     public function index(){
 
         $myProducts = (new MyProduct())
-            ->join('users', 'users.id', 'my_products.user_id')
-            ->join('products', 'products.id','my_products.product_id')
-            ->join('countries', "countries.id", "my_products.country_of_purchase")
-            ->select('my_products.*', 'products.*', 'users.name as user_name',
-                'countries.name as country_name')
+            ->leftJoin('users', 'users.id', 'my_products.user_id')
+            ->leftJoin('products', 'products.id','my_products.product_id')
+            ->select('my_products.*', 'products.*', 'users.name as user_name', 'country_of_purchase')
             ->get();
-//dd($myProducts);
+
         $return = ['myProducts' => $myProducts];
         return view('admin.usersproducts', $return);
     }
