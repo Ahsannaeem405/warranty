@@ -40,7 +40,7 @@ return [
     'facebook' => [
         'client_id' => '713176886555710',
         'client_secret' => '9cdd0ae35246786d02a85e63f0de56f5',
-        'redirect' => 'http://warrantybti.herokuapp.com/public/auth/facebook/callback',
+        'redirect' => 'https://warrantybti.herokuapp.com/public/auth/facebook/callback',
     ],
 
 
