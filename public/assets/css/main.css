@@ -44,9 +44,9 @@ body{
 
 header {
     /* background: url('../img/apm1.webp'); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
     height: 100vh;
 }
 
@@ -303,10 +303,35 @@ header {
 }
 @media (min-width: 768px) {
     .box {
-       
+
         width: 75% !important;
     }
 }
 
 
 /* index page */
+
+
+.section3-text-left{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.section3-text{
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+}
+
+.section3-text-right{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.section3-textt{
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+}

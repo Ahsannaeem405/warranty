@@ -32,28 +32,55 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Setting::create([
-            "id" => "1",
+            'id' => '1',
             'site_logo' => 'logo.png',
             'header_background' => 'apm1.webp',
             'section2_background' => 'product-amp.webp',
-            // 'section1_heading' => 'Step 1',
             'section1_title' => 'What is SKU?',
-            'section1_description' => 'What is SKU?',
-            // 'section2_heading' => 'Step 2',
+            'section1_description' => 'There are many variations of passages of Lorem Ipsum
+                                       available, but the majority have suffered alteration in some
+                                       form, by injected humour, or randomised words which dont
+                                       look even slightly believable. If you are going to use a
+                                       passage of Lorem Ipsum, you need to be sure there isnt
+                                       anything embarrassing hidden in the middle of text.
+                                       All the Lorem Ipsum generators on the Internet tend to repeat
+                                       predefined chunks as necessary, making this the first true
+                                       generator on the Internet.',
+
             'section2_title' => 'Search',
-            'section2_description' => 'Search',
-            // 'section3_heading' => 'Step 3',
+            'section2_description' => 'There are many variations of passages of Lorem Ipsum
+                                       available, but the majority have suffered alteration in some
+                                       form, by injected humour, or randomised words which dont
+                                       look even slightly believable.',
+
             'section3_title' => 'Result',
-            'section3_description' => 'Result',
-            // 'section4_heading' => 'Step 4',
+            'section3_description' => 'There are many variations of passages of Lorem Ipsum
+                                       available, but the majority have suffered alteration in some
+                                       form, by injected humour, or randomised words which dont
+                                       look even slightly believable.',
+
             'section4_title' => 'What is SKU and Serial Number',
             'section4_description' => 'Finish',
             'section3_head_title' => 'WE ARE A TEAM OF AUDIOHEADS, SOUND ENGINEERS, AND FRIENDS.',
             'section3_head_below_title' => '3',
             'product_image1' => 'product-amp.webp',
             'product_image2' => 'product-amp.webp',
-            'product_detail1' => 'It is a long established fact that a reader will be distracted by the readable',
-            'product_detail2' => 'It is a long established fact that a reader will be distracted by the readable',
+            'product_detail1' => 'Lorem Ipsum has been the industrys standard dummy text ever
+                                  since the 1500s, when an unknown printer took a galley of type
+                                  and scrambled it to make a type specimen book. It has survived
+                                  not only five centuries, but also the leap into electronic
+                                  typesetting, remaining essentially unchanged. It was popularised
+                                  in the 1960s with the release of Letraset sheets containing
+                                  Lorem Ipsum passages, and more recently with desktop publishing
+                                  software like Aldus PageMaker including versions of Lorem Ipsum.',
+            'product_detail2' => 'Lorem Ipsum has been the industrys standard dummy text ever
+                                  since the 1500s, when an unknown printer took a galley of type
+                                  and scrambled it to make a type specimen book. It has survived
+                                  not only five centuries, but also the leap into electronic
+                                  typesetting, remaining essentially unchanged. It was popularised
+                                  in the 1960s with the release of Letraset sheets containing
+                                  Lorem Ipsum passages, and more recently with desktop publishing
+                                  software like Aldus PageMaker including versions of Lorem Ipsum.',
             'section4_background' => 'Nakamichi_footer.webp',
             's4_descrip' => 'Carrying on the tradition of our presence in the global audio <br> market, Nakamichi was present at this years CES 2020',
             'sub_s4_img1' => 'apm1.png',
@@ -83,71 +110,6 @@ class DatabaseSeeder extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgfWpeA7uTbD-OhGbXU20DGTP5goSok4hVpA&usqp=CAU',
             'sku' => '111',
             'serial_no' => '111',
-        ]);
-
-        Country::insert([
-           [
-               'id' => '1',
-               'name' => 'Pakistan'
-           ],
-
-            [
-                'id' => '2',
-                'name' => 'China'
-            ],
-            [
-                'id' => '4',
-                'name' => 'Japan'
-            ],
-            [
-                'id' => '5',
-                'name' => 'Afghanistan'
-            ],
-            [
-                'id' => '6',
-                'name' => 'Albania'
-            ],
-            [
-                'id' => '7',
-                'name' => 'Algeria'
-            ],
-            [
-                'id' => '8',
-                'name' => 'USA'
-            ],
-            [
-                'id' => '9',
-                'name' => 'Germany'
-            ],
-            [
-                'id' => '10',
-                'name' => 'France'
-            ],
-            [
-                'id' => '11',
-                'name' => 'Russia'
-            ],
-            [
-                'id' => '12',
-                'name' => 'Turkey'
-            ],
-            [
-                'id' => '13',
-                'name' => 'Turkey'
-            ],
-            [
-                'id' => '14',
-                'name' => 'United Arab Emirates'
-            ],
-            [
-                'id' => '15',
-                'name' => 'United Arab Emirates'
-            ],
-            [
-                'id' => '16',
-                'name' => 'United Kingdom'
-            ],
-
         ]);
     }
 }

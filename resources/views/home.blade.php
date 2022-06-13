@@ -31,7 +31,8 @@
 <body>
 @include("layouts.user-menu")
 
-<header class="" style="background: url('{{ asset('header/'.$setting->header_background) }}');">
+<header class="" style="background: url('{{ asset('header/'.$setting->header_background) }}');
+            background-repeat: no-repeat; background-position: center; background-size: cover;">
 {{--         <img class="header" src="{{ asset('header/'.$setting->header_background) }}"> --}}
         <section class="Banner mx-3 mx-md-0">
             <div class="container position-relative main mt-md-5 mt-3">
@@ -154,7 +155,7 @@
 
                         <div class="main-part">
 
-                            <div class="text">
+                            <div class="">
                                 {{-- <h2>{{ $setting->section2_title }}</h2> --}}
                                 <p>{!!  $setting->section2_description !!}</p>
                             </div>
@@ -169,7 +170,7 @@
 
                         <div class="main-part">
 
-                            <div class="text">
+                            <div class="">
                                 {{-- <h2>Result</h2> --}}
                                 <p>{!!  $setting->section3_description !!}</p>
                             </div>
@@ -217,7 +218,7 @@
                                 <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                             </svg>
 
-                            <div class="text congrats">
+                            <div class="congrats">
                                 {{-- <h2>Finish</h2> --}}
                                 <p>{!!  $setting->section4_description !!}</p>
                             </div>
@@ -245,8 +246,8 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <div class="" style="padding-top: 60px;">
+                <div class="col-md-6 section3-text-left">
+                    <div class="section3-text">
                         {!! $setting->product_detail1 !!}
                         {{-- <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
                             <li>
@@ -287,8 +288,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="" style="padding-top: 60px;">
+                <div class="col-md-6 section3-text-right">
+                    <div class="section3-textt" style="padding-top: 60px;">
                         {!! $setting->product_detail2 !!}
                         {{-- <ul class="list-unstyled p-5 mb-0 text-grey-two fontw300">
                             <li>

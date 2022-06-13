@@ -64,7 +64,7 @@
                 @foreach($myProducts as $myproduct)
                     {{--{{dd($myproduct)}}--}}
                     <div class="col-lg-3 col-md-4 col-6 py-2 text-center shadow shadow-lg  border border-3">
-                        <div class="img_div">
+                        <div class="img_div justify-content-center">
                             <img src="{{isset($myproduct->image) ? $myproduct->image : asset('assets/img/NC-501_400x.webp')}}" class="img-fluid" alt="">
                         </div>
 
