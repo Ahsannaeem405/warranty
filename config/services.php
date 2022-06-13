@@ -32,14 +32,14 @@ return [
     ],
 
     'google' => [
-        'client_id' => '325110223746-ktbo8ilkhsaa4el9rk194c40391nohnh.apps.googleusercontent.com',
-        'client_secret' => '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',
+        'client_id' => '673464880587-5jacav8arjgne7l2aae1vqvpsglg0b15.apps.googleusercontent.com',
+        'client_secret' => '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',
         'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
     ],
 
     'facebook' => [
-        'client_id' => '1632055877168306',
-        'client_secret' => '3d371e99eaff8cc4b1f7f7608e27a539',
+        'client_id' => '713176886555710',
+        'client_secret' => '9cdd0ae35246786d02a85e63f0de56f5',
         'redirect' => 'https://127.0.0.1:8000/auth/facebook/callback',
     ],
 

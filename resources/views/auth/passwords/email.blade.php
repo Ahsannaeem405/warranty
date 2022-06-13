@@ -13,10 +13,17 @@
 </head>
 
 <body>
-<div class="wrapper text-center shadow">
+<div class="wrapper text-center shadow py-4">
     <h1 class="fs-4 mb-4">Reset Password</h1>
     <form  method="POST" action="{{ route('password.email') }}">
         @csrf
+
+        @if(session()->has('status'))
+            <div class="alert alert-success" style="font-size: 12px;">
+                {{ session()->get('status') }}
+            </div>
+        @endif
+
         <div class="mb-3">
             <input type="email" name="email" value="{{ old('email') }}"
                    autofocus autocomplete="email" placeholder="Enter Email"
@@ -30,7 +37,7 @@
 
          <button type="submit" class="btn btn-primary">
                     {{ __('Send Password Reset Link') }}
-                </button>
+         </button>
     </form>
 </div>
 

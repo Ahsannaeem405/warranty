@@ -46,9 +46,9 @@
 
                     <div class="icons mb-3">
 
-                        <i class="fab fa-google p-2 font-14 ms-2"></i>
+                        <a href="{{ url('auth/google') }}"><i class="fab fa-google p-2 font-14 ms-2"></i></a>
                         <!--<i class="fab fa-apple p-2 font-14 ms-2"></i>-->
-                            <i class="fab fa-facebook p-2 font-14 ms-2"></i>
+                            <a href="{{ url('auth/facebook') }}"><i class="fab fa-facebook p-2 font-14 ms-2"></i></a>
 
                     </div>
                 </div>
