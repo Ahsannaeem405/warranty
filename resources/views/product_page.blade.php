@@ -84,6 +84,7 @@
                         <a id="trash_it"  href="{{route('product-remove', ['id' => $myproduct['product_id']])}}"
                            class="btn border border-danger text-danger btn-sm btn-rounded">
                             <i class="fa fa-trash"></i></a>
+
                         <div class="row mt-3 justify-content-center">
                             <div class="col-lg-6">
                                 <p class="card-text text-grey-three font-12"><strong>Purchase Date:</strong> {{date('F d, Y', strtotime($myproduct->date_of_purchase))}}</p>
@@ -92,7 +93,7 @@
                             <div class="col-lg-5">
                                 <p class="card-text text-grey-three font-12"><strong>Expiry:<br></strong> {{date('F d, Y', strtotime($myproduct->expiry))}}</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 @endforeach
