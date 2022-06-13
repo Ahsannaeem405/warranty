@@ -32,15 +32,15 @@ return [
     ],
 
     'google' => [
-        'client_id' => '673464880587-5jacav8arjgne7l2aae1vqvpsglg0b15.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
+        'client_id' => '673464880587-96tc8ojqcfnq1g7ifu13kptrntn78u0u.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://warrantybti.herokuapp.com/public/auth/google/callback',
     ],
 
     'facebook' => [
         'client_id' => '713176886555710',
         'client_secret' => '9cdd0ae35246786d02a85e63f0de56f5',
-        'redirect' => 'https://127.0.0.1:8000/auth/facebook/callback',
+        'redirect' => 'http://warrantybti.herokuapp.com/public/auth/facebook/callback',
     ],
 
 
