@@ -35,30 +35,32 @@ class GoogleController extends Controller
 
             $user = Socialite::driver('google')->user();
 
-            $userRecord = User::where('email', $user->email)->first();
+            //$userRecord = User::where('email', $user->email)->first();
             //dd($userRecord);
 
-            if(!empty($userRecord)){
-                $data2 = Http::get('https://api.ipify.org/?format=json');
-                $data2 = json_decode($data2->body());
-                $ip = $data2->ip;
-                $newUser = User::where('id', $userRecord->id)
-                ->update([
-                    'name' => $user->name,
-                    'is_admin' => "0",
-                    'address' => null,
-                    'ip_address' => $ip,
-                    'google_id'=> $user->id,
-                    //'password' => Hash::make('12345678')
-                ]);
-
-                Auth::login($newUser);
-
-                return redirect()->route('home');
-            }
+//            if(!empty($userRecord)){
+//                $data2 = Http::get('https://api.ipify.org/?format=json');
+//                $data2 = json_decode($data2->body());
+//                $ip = $data2->ip;
+//                $newUser = User::where('id', $userRecord->id)
+//                ->update([
+//                    'name' => $user->name,
+//                    'is_admin' => "0",
+//                    'address' => null,
+//                    'ip_address' => $ip,
+//                    'google_id'=> $user->id,
+//                    //'password' => Hash::make('12345678')
+//                ]);
+//
+//                Auth::login($newUser);
+//
+//                return redirect()->route('home');
+//            }else{
+//
+//            }
 
             $finduser = User::where('google_id', $user->id)
-//            ->orwhere("email",$user->email)
+            ->orwhere("email",$user->email)
             ->first();
 
             if($finduser){
