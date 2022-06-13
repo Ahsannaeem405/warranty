@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use Validator;
-use Socialite;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Validator;
+//use Socialite;
 use Exception;
-use Auth;
+//use Auth;
 use Illuminate\Support\Facades\Http;
 
 class FacebookController extends Controller
@@ -24,11 +26,14 @@ class FacebookController extends Controller
         try {
 
             $user = Socialite::driver('facebook')->user();
-            $facebookId = User::where('facebook_id', $user->id)->first();
+            $facebookId = User::where('facebook_id', $user->id)
+                ->orwhere("email",$user->email)
+                ->first();
 
             if($facebookId){
                 Auth::login($facebookId);
-                return redirect('/dashboard');
+//                return redirect('/dashboard');
+                return redirect()->route('home');
             }else{
                 $data2 = Http::get('https://api.ipify.org/?format=json');
                 $data2 = json_decode($data2->body());
@@ -43,7 +48,7 @@ class FacebookController extends Controller
                 ]);
 
                 Auth::login($createUser);
-                return redirect('/dashboard');
+                return redirect()->route('home');
             }
 
         } catch (Exception $exception) {
